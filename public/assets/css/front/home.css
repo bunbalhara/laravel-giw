@@ -1,0 +1,151 @@
+.user-info-container {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px;
+  background-color: white;
+  height: 600px;
+  padding: 0 5%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-info-container .title {
+  font-size: 26px;
+  color: #096128;
+  font-weight: bold;
+}
+
+.user-info-container .description {
+  color: #303030;
+  font-weight: 300;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.user-info-container .description a {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.user-info-container .form-group {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.user-info-container .form-group .label {
+  width: 100%;
+  text-align: left;
+  color: black;
+  margin-bottom: 5px;
+}
+
+.user-info-container .form-group input {
+  width: 100%;
+  outline: none;
+  height: 44px;
+  border-radius: 5px;
+  border: solid 1px #8080807f;
+  padding: 0 10px;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  max-width: 400px;
+  background-color: #86bc42;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  margin: 20px 0;
+  height: 41px;
+  font-size: 18px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #c6e2af;
+}
+
+.area-2 {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  color: black;
+  padding: 100px;
+  padding-bottom: 100px !important;
+  justify-content: center;
+  display: flex;
+}
+
+.calculation-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.calculation-form fieldset {
+  border: solid 1px #8080807f;
+  border-radius: 5px;
+  padding: 20px;
+  width: 100%;
+  max-width: 700px;
+}
+
+.calculation-form fieldset legend {
+  font-weight: bold;
+  text-align: left;
+  padding: 0 10px;
+}
+
+.calculation-form table {
+  margin-top: 20px !important;
+  border: none !important;
+  width: 100%;
+  max-width: 700px;
+}
+
+.calculation-form table td,
+.calculation-form table th {
+  border: none !important;
+  background-color: white;
+  padding: 1px !important;
+}
+
+.calculation-form .form-group {
+  width: 100%;
+  max-width: 700px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.calculation-form .form-group input,
+.calculation-form .form-group select {
+  width: 60%;
+  outline: none;
+  height: 35px;
+  border-radius: 5px;
+  border: solid 1px #8080807f;
+  padding: 0 10px;
+  font-size: 16px;
+}
+
+.calculation-form .form-group button {
+  margin-left: auto;
+  text-transform: capitalize;
+}
+
+.input-box {
+  width: 100%;
+  border-radius: 5px;
+  border: solid 1px #8080807f;
+  height: 35px;
+  font-size: 16px;
+  padding: 5px;
+}
+
