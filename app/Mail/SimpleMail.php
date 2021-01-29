@@ -45,6 +45,5 @@ class SimpleMail extends Mailable
     {
         // Called when the job is failing...
         Log::alert('error in queue mail');
-
     }
 }

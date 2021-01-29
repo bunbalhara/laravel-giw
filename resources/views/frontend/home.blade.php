@@ -30,7 +30,7 @@
             </div>
             <button class="submit-name-email" disabled>Continue</button>
         </div>
-        <div class="area-2 calculation-form" hidden>
+        <div class="area-2 calculation-form" style="display: none">
             <div class="form-group">
                 <div class="label">Climate Zone</div>
                 <select class="climate-zone select-box">
@@ -190,9 +190,6 @@
         }
         $(document).ready(function () {
 
-            // $('.area-1').hide();
-            $('.area-2').hide();
-
             $(document).on('change keyup','.email-address,.full-name', function (){
                 let email = $('.email-address').val();
                 let fullName = $('.full-name').val();
@@ -227,13 +224,17 @@
                         if(res.status){
                             const {email, name} = res.data;
                             console.log(email, name);
-                            $('.area-1').hide();
-                            $('.area-2').show();
+                            $('.area-1').css('display','none');
+                            $('.area-2').css('display','block');
                         } else {
                             console.log(res.errors)
                         }
+                        $(this).html('Submit')
                     },
-                    error:err=>console.log(err)
+                    error:err=> {
+                        $(this).html('Submit')
+                        console.log(err)
+                    }
                 })
             })
 
@@ -465,7 +466,6 @@
                         })
                     }
                 })
-                console.log('selected window properties', windowProperties);
             }
 
             $(document).on('change keyup click', '.climate-zone, .building-classification, .window-properties .select-item, table input', function () {
@@ -492,11 +492,6 @@
                 sAe = sALookupTable.find(item=>item.climateZone == $('.climate-zone').val()).east;
                 sAw = sALookupTable.find(item=>item.climateZone == $('.climate-zone').val()).west;
 
-                console.log('SA', sAn, sAs, sAe, sAw);
-
-
-                console.log('isTableJ15BorC', isTableJ1_5BorC);
-
                 // Shading Projection
                 northProjection = $('.north_projection').val();
                 northW = $('.north_w').val();
@@ -515,16 +510,12 @@
                 westH = $('.west_h').val();
                 westG = westH - westW;
 
-                console.log('inputs', northProjection, northW, northH, northG, eastProjection, eastW, eastH, eastG, southProjection, southW, southH, southG, westProjection, westW, westH, westG);
-
                 // G/H
 
                 let northG_H = (northG/northH);
                 let southG_H = (southG/southH);
                 let eastG_H = (eastG/eastH);
                 let westG_H = (westG/westH);
-
-                console.log('G/H', northG_H, southG_H, eastG_H, westG_H);
 
                 // P/H
 
@@ -533,8 +524,6 @@
                 let eastP_H = (eastProjection/eastH);
                 let westP_H = (westProjection/westH);
 
-                console.log('P/H', northP_H, southP_H, eastP_H, westP_H);
-
                 // Shading Coefficients
 
                 let Sn = getShadingCoefficient(northG_H, northP_H, tableSpecJ1_57a);
@@ -542,7 +531,6 @@
                 let Se = getShadingCoefficient(eastG_H, eastP_H, tableSpecJ1_57a);
                 let Sw = getShadingCoefficient(westG_H, westP_H, tableSpecJ1_57a);
 
-                console.log('shading coefficients', Sn, Ss, Se, Sw);
 
                 // UAve, UWall
 
@@ -550,18 +538,11 @@
                 buildingClassification = $('.building-classification').val();
                 uAve = tableJ1_5a.find(item=>item.climateZone == climateZone)[buildingClassification];
 
-                console.log('climateZone', climateZone);
-                console.log('buildingClassification', buildingClassification);
-                console.log('uAve', uAve);
-
                 uWal = 1;
-
-                console.log('uWal', uWal);
 
                 let result = [];
 
                 for (let item of windowProperties){
-                    console.log('property', item)
                     let uValLimit = (uAve - uWal)/(item.totalSystemUValue - uWal);
                     let northSHGCLimit = sAn / (Sn * item.totalSystemSHGC);
                     let southSHGCLimit = sAs / (Ss * item.totalSystemSHGC);
@@ -584,8 +565,6 @@
                     })
                 }
 
-                console.log('result to be submitted', result)
-
                 let formData = new FormData();
                 formData.append('email', email);
                 formData.append('name', fullName);
@@ -602,6 +581,7 @@
                     processData: false,
                     contentType: false,
                     success:res=>{
+                        console.log(res);
                         if(res.status){
                            console.log(res.data)
                             toastr.success('Successfully calculated!, Please check your email.')
@@ -609,17 +589,21 @@
                         } else {
                             console.log(res.errors)
                         }
+                        button.html('Submit')
+                        button.prop('disabled', false)
                     },
-                    error:err=>console.log(err)
+                    error:err=> {
+                        button.prop('disabled', false)
+                        button.html('Submit')
+                        console.log(err)
+                    }
                 })
             })
 
 
             function getShadingCoefficient(gh, ph, table){
                 let matchOrSmallestPH = Math.floor(ph * 10)/10;
-                console.log('match or smallest P/H', matchOrSmallestPH);
                 let matchOrSmallestGH = Math.floor(gh * 10)/10;
-                console.log('match or smallest G/H', matchOrSmallestGH);
 
                 let lookUpGHArray = table.reduce((result, item)=>{
                     if(item.ph == matchOrSmallestPH){
@@ -628,15 +612,10 @@
                     return  result;
                 },[]);
 
-                console.log('lookUpGHArray', lookUpGHArray);
-
                 let result = lookUpGHArray.find(item=>item.gh == matchOrSmallestGH);
-
-                console.log('result', result);
 
                 return result.value;
             }
-
         })
     </script>
 @endsection

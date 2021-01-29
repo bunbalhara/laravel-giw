@@ -18,27 +18,19 @@ class HomeController extends Controller
 
     public function addUser(Request $request){
         $validator = Validator::make($request->all(), [
-            'name'=>'required',
-            'email'=>'required',
+            'email'=>'unique:calculator_users',
         ]);
 
         if($validator->passes()){
-            $user = User::where('email', $request->email)->get()->first();
-            if($user == null){
-                $user = new User();
-                $user->email = $request->email;
-                $user->name = $request->name;
-                $user->save();
-            }
-            return response()->json([
-                'status'=>1,
-                'data'=>$request->all(),
-            ]);
+            $user = new User();
+            $user->email = $request->email;
+            $user->name = $request->name;
+            $user->save();
         }
 
         return response()->json([
-           'status'=> 0,
-           'errors'=> $validator->errors(),
+            'status'=>1,
+            'data'=>$request->all(),
         ]);
     }
 
@@ -50,19 +42,31 @@ class HomeController extends Controller
         ]);
 
         if($validator->passes()){
+            try {
 
-            Mail::to($request->email)->send(new SimpleMail($request->name, json_decode($request->result)));
+                $email = $request->email;
+                $name = $request->name;
+                $result = json_decode($request->result);
+                Mail::to($email)->send(new SimpleMail($name, $result));
 
-            return response()->json([
-               'status'=> 1,
-               'data'=> $request->all(),
-                'message'=>'success'
-            ]);
+                return response()->json([
+                    'status'=> 1,
+                    'data'=> $request->all(),
+                    'message'=>'success'
+                ]);
+            }catch (\Exception $err){
+                return response()->json([
+                    'status'=> 0,
+                    'errors'=> $err->getMessage(),
+                    'data'=> $request->all(),
+                    'message'=>'failed'
+                ]);
+            }
         }
 
         return response()->json([
             'status'=> 0,
-            'data'=> $validator->errors(),
+            'errors'=> $validator->errors(),
             'message'=>'success'
         ]);
 
