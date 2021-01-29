@@ -8,7 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
 
-class SimpleMail extends Mailable
+class SimpleMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
     public $result;

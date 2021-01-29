@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCalculaterUsersTable extends Migration
+class CreateCalculatorUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,8 +15,6 @@ class CreateCalculaterUsersTable extends Migration
     {
         Schema::create('calculator_users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('mail');
             $table->timestamps();
         });
     }
@@ -24,7 +22,7 @@ class CreateCalculaterUsersTable extends Migration
     /**
      * Reverse the migrations.
      *
-     * @return voidhttps://calculator.giw.com.au/login/
+     * @return void
      */
     public function down()
     {

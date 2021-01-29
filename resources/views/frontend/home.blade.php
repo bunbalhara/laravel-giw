@@ -583,8 +583,8 @@
                     success:res=>{
                         console.log(res);
                         if(res.status){
-                           console.log(res.data)
-                            toastr.success('Successfully calculated!, Please check your email.')
+                            console.log(res.data)
+                            toastr.success(res.message)
                             button.prop('disabled', false)
                         } else {
                             console.log(res.errors)

@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Mail\SimpleMail;
-use App\Models\User;
+use App\Models\CalculatorUser;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
+use Mail;
 use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
@@ -22,7 +22,7 @@ class HomeController extends Controller
         ]);
 
         if($validator->passes()){
-            $user = new User();
+            $user = new CalculatorUser();
             $user->email = $request->email;
             $user->name = $request->name;
             $user->save();
@@ -36,8 +36,8 @@ class HomeController extends Controller
 
     public function sendEmail(Request $request){
         $validator = Validator::make($request->all(), [
-           'email'=>'required',
-           'name'=>'required',
+            'email'=>'required',
+            'name'=>'required',
             'result'=>'required'
         ]);
 
@@ -48,11 +48,10 @@ class HomeController extends Controller
                 $name = $request->name;
                 $result = json_decode($request->result);
                 Mail::to($email)->send(new SimpleMail($name, $result));
-
                 return response()->json([
                     'status'=> 1,
                     'data'=> $request->all(),
-                    'message'=>'success'
+                    'message'=>'The calculation sent to '.$email.' successfully , Please check your email.'
                 ]);
             }catch (\Exception $err){
                 return response()->json([

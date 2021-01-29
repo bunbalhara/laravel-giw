@@ -1,3 +1,4 @@
+
 <div>Hi, {{$name}}</div>
 <h4>Thank you to visit GIW platform</h4>
 <p>Here is your calculation!</p>

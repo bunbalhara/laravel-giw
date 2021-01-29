@@ -42,6 +42,7 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 - **[Many](https://www.many.co.uk)**
 - **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
 - **[DevSquad](https://devsquad.com)**
+- **[Curotec](https://www.curotec.com/)**
 - **[OP.GG](https://op.gg)**
 
 ## Contributing
@@ -59,14 +60,3 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
-
-#############################################################################################################################################
-- cp .env.example .env
-- set databasename, user name, password
-- create database
-- php artisan key:generate
-- php artisan migrate
-- php artisan db:seed
-- php artisan storage:link
-- admin@admin.com secret
