@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
 
         $admin = User::create([
             'name'=>'Administrator',
-            'email'=>'admin@admin.com',
+            'mail'=>'admin@admin.com',
             'email_verified_at' => \Carbon\Carbon::now()->toDateTimeString(),
             'password'=>bcrypt('secret'),
         ]);

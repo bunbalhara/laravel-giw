@@ -21,8 +21,8 @@
                 </div>
                 <div class="field-wrap">
                     <p class="mb-0 text-left">Email Address <i class="fa fa-info-circle tooltip_1" title="Valid Email Address."></i></p>
-                    <input type="email" class="biz_input" autocomplete="off" name="email" value="{{ old('email') }}" required/>
-                    @error('email')
+                    <input type="email" class="biz_input" autocomplete="off" name="email" value="{{ old('mail') }}" required/>
+                    @error('mail')
                     <div class="text-danger text-left">{{ $message }}</div>
                     @enderror
                 </div>

@@ -12,9 +12,9 @@
                 <input type="hidden" name="token" value="{{ $token }}">
                 <div class="field-wrap">
                     <p class="mb-0 text-left">Email Address</p>
-                    <input type="email" class="biz_input" required autocomplete="off" name="email" value="{{ old('email') }}"/>
+                    <input type="email" class="biz_input" required autocomplete="off" name="email" value="{{ old('mail') }}"/>
 
-                    @error('email')
+                    @error('mail')
                     <div class="text-danger text-left">{{ $message }}</div>
                     @enderror
                 </div>

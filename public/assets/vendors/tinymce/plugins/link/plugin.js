@@ -1242,7 +1242,7 @@
       var url = data.href;
       var suggestMailTo = url.indexOf('@') > 0 && url.indexOf('//') === -1 && url.indexOf('mailto:') === -1;
       return suggestMailTo ? Option.some({
-        message: 'The URL you entered seems to be an email address. Do you want to add the required mailto: prefix?',
+        message: 'The URL you entered seems to be an mail address. Do you want to add the required mailto: prefix?',
         preprocess: function (oldData) {
           return __assign(__assign({}, oldData), { href: 'mailto:' + url });
         }

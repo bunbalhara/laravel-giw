@@ -7,12 +7,12 @@
             <p class="font-size20 font-weight-bold">Verify Your Email Address</p> <br>
             @if (session('resent'))
                 <div class="alert alert-success mt-2" role="alert">
-                    {{ __('A fresh verification link has been sent to your email address.') }}
+                    {{ __('A fresh verification link has been sent to your mail address.') }}
                 </div>
             @endif
             <p class="mt-3">
-                {{ __('Before proceeding, please check your email for a verification link.') }}
-                {{ __('If you did not receive the email') }},
+                {{ __('Before proceeding, please check your mail for a verification link.') }}
+                {{ __('If you did not receive the mail') }},
             </p>
             <form method="POST" action="{{ route('verification.resend') }}" id="auth_form">
                 @csrf

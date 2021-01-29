@@ -12,8 +12,8 @@
                     <p class="mb-0 text-left">
                         Email Address:
                     </p>
-                    <input type="email" class="biz_input" name="email" value="{{ old('email')}}" autocomplete="off" autofocus required/>
-                    @error('email')
+                    <input type="email" class="biz_input" name="email" value="{{ old('mail')}}" autocomplete="off" autofocus required/>
+                    @error('mail')
                     <div class="text-danger text-left">{{ $message }}</div>
                     @enderror
                 </div>

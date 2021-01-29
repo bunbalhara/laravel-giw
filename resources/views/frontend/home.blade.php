@@ -1,6 +1,7 @@
 @extends('layouts.front')
 @section('styles')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://unpkg.com/izitoast/dist/css/iziToast.min.css" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/css/front/home.css?'.time())}}"  rel="stylesheet" >
 @endsection
 @section('content')
@@ -162,18 +163,35 @@
             </table>
 
             <div class="form-group">
-                <button class="submit-button" > Submit </button>
+                <button class="submit-button" disabled> Submit </button>
             </div>
         </div>
     </div>
 @endsection
 
 @section('scripts')
+    <script src="https://unpkg.com/izitoast/dist/js/iziToast.min.js" type="text/javascript"></script>
     <script>
+        iziToast.settings({
+            timeout: 3000, // default timeout
+            resetOnHover: true,
+            // icon: '', // icon class
+            transitionIn: 'flipInX',
+            transitionOut: 'flipOutX',
+            position: 'topRight',
+        });
+        var toastr = {
+            success:(message)=>{
+                iziToast.success({message: message})
+            },
+            error:(message)=>{
+                iziToast.error({message: message})
+            }
+        }
         $(document).ready(function () {
 
             // $('.area-1').hide();
-            // $('.area-2').show();
+            $('.area-2').hide();
 
             $(document).on('change keyup','.email-address,.full-name', function (){
                 let email = $('.email-address').val();
@@ -450,11 +468,20 @@
                 console.log('selected window properties', windowProperties);
             }
 
-            $(document).on('change keyup', '.climate-zone, .building-classification, .window-properties, table input', function () {
-
+            $(document).on('change keyup click', '.climate-zone, .building-classification, .window-properties .select-item, table input', function () {
+                let enabled = false;
+                if(windowProperties.length > 0){
+                    enabled = true;
+                }
+                $('.submit-button').prop('disabled', !enabled);
             })
 
             $('.submit-button').click(function () {
+
+
+                let button = $(this);
+                button.prop('disabled', true)
+                button.html('<i class="fa fa-spinner fa-spin"/>')
 
                 isTableJ1_5BorC = ['class3', 'class9c','class9aWard'].includes($('.building-classification').val())?'C':'B';
 
@@ -549,10 +576,10 @@
                     result.push({
                         property: item.property,
                         output:{
-                            nUL_WWR,
-                            sUL_WWR,
-                            eUL_WWR,
-                            wUL_WWR
+                            north: (nUL_WWR*100).toFixed(1),
+                            south:(sUL_WWR*100).toFixed(1),
+                            east: (eUL_WWR*100).toFixed(1),
+                            west: (wUL_WWR*100).toFixed(1)
                         }
                     })
                 }
@@ -569,7 +596,7 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     type:'post',
-                    url:'{{route('email.send')}}',
+                    url:'{{route('mail.send')}}',
                     data: formData,
                     cache: false,
                     processData: false,
@@ -577,6 +604,8 @@
                     success:res=>{
                         if(res.status){
                            console.log(res.data)
+                            toastr.success('Successfully calculated!, Please check your email.')
+                            button.prop('disabled', false)
                         } else {
                             console.log(res.errors)
                         }

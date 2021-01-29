@@ -16,7 +16,7 @@ class CreateCalculaterUsersTable extends Migration
         Schema::create('calculator_users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email');
+            $table->string('mail');
             $table->timestamps();
         });
     }

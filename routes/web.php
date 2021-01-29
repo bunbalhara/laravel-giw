@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace'=>'Front'], function() {
     Route::get('/', 'HomeController@index')->name('home');
     Route::post('user/add', 'HomeController@addUser')->name('user.add');
-    Route::post('email/send', 'HomeController@sendEmail')->name('email.send');
+    Route::post('mail/send', 'HomeController@sendEmail')->name('mail.send');
 });
 
 Auth::routes();
@@ -28,3 +28,8 @@ Route::group(['middleware'=>['auth','verified']], function(){
     Route::post('/account/passwordUpdate', 'HomeController@passwordUpdate')->name('password.update');
     Route::post('/uploadImage', 'HomeController@uploadImage')->name('uploadImage');
 });
+
+Artisan::command('logs:clear', function() {
+    array_map('unlink', array_filter((array) glob(storage_path('logs/*.log'))));
+    $this->comment('Logs have been cleared!');
+})->describe('Clear log files');

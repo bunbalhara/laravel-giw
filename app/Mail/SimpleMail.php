@@ -11,15 +11,17 @@ use Illuminate\Support\Facades\Log;
 class SimpleMail extends Mailable
 {
     use Queueable, SerializesModels;
-
+    public $result;
+    public $name;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($name, $result)
     {
-        //
+        $this->name = $name;
+        $this->result = $result;
     }
 
     /**
@@ -29,8 +31,14 @@ class SimpleMail extends Mailable
      */
     public function build()
     {
+        $result = $this->result;
+        $name = $this->name;
         return $this->subject('Subject Name')
-        ->view('mail.template1');
+            ->view('mail.template1')
+            ->with([
+                'result'=>$result,
+                'name'=>$name
+            ]);
     }
 
     public function failed()

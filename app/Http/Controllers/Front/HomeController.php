@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Mail\SimpleMail;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
@@ -44,9 +46,13 @@ class HomeController extends Controller
         $validator = Validator::make($request->all(), [
            'email'=>'required',
            'name'=>'required',
+            'result'=>'required'
         ]);
 
         if($validator->passes()){
+
+            Mail::to($request->email)->send(new SimpleMail($request->name, json_decode($request->result)));
+
             return response()->json([
                'status'=> 1,
                'data'=> $request->all(),

@@ -5,7 +5,7 @@
     <div class="form">
         <div class="tab-content">
             <p class="font-size20 font-weight-bold">Reset Password Request</p> <br>
-            <form method="POST" action="{{ route('password.email') }}" id="auth_form">
+            <form method="POST" action="{{ route('password.mail') }}" id="auth_form">
                 @csrf
                 @honeypot
                 @if (session('status'))
@@ -15,8 +15,8 @@
                 @endif
                 <div class="field-wrap">
                     <p class="mb-0 text-left">Email Address</p>
-                    <input type="email" class="biz_input" required autocomplete="off" name="email" value="{{ old('email') }}"/>
-                    @error('email')
+                    <input type="email" class="biz_input" required autocomplete="off" name="email" value="{{ old('mail') }}"/>
+                    @error('mail')
                     <div class="text-danger text-left">{{ $message }}</div>
                     @enderror
                 </div>
