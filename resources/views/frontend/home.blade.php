@@ -570,9 +570,28 @@
                 let userInputs = `<p><strong>Climate Zone: </strong><span>${climateZone}</span></p>`;
                 userInputs += `<p><strong>Building Classification: </strong><span>${buildingClassification}</span></p>`;
 
-                userInputs += `<table style="table-layout: fixed; border: solid 1px #000000"><caption>Window configuration</caption><thead><tr><th>Window Properties</th><th>Total System U-value</th><th>Total System SHGC</th></tr></thead></table>`
+                userInputs += `<table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse"><caption>Window configuration</caption><thead><tr><th>Window Properties</th><th>Total System U-value</th><th>Total System SHGC</th></tr></thead>`
+                userInputs += `<tbody>`;
 
-                let resultTable = `<table style="table-layout: fixed; border: solid 1px #000000; margin: auto"><caption>${project}</caption><thead><tr><th></th>`;
+                for (let item of windowProperties){
+                    userInputs += `<tr>`;
+                    userInputs += `<td>${item.property}</td><td>${item.totalSystemUValue}</td><td>${item.totalSystemSHGC}</td>`;
+                    userInputs += `</tr>`;
+                }
+
+                userInputs += `</tbody></table>`;
+
+                userInputs += `<table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse; margin-top: 100px"><thead><tr><th>Shading</th><th>Projection</th><th>W (Window Height)</th><th>H (Shading Height)</th></tr></thead>`
+                userInputs += `<tbody><tr><td>North</td><td>${northProjection}</td><td>${northW}</td><td>${northH}</td></tr>`
+                userInputs += `<tr><td>Ease</td><td>${eastProjection}</td><td>${eastW}</td><td>${eastH}</td></tr>`
+                userInputs += `<tr><td>South</td><td>${southProjection}</td><td>${southW}</td><td>${southH}</td></tr>`
+                userInputs += `<tr><td>West</td><td>${westProjection}</td><td>${westW}</td><td>${westH}</td></tr>`
+
+                userInputs += `</tbody></table>`
+
+
+                // Result Table
+                let resultTable = `<table style="table-layout: fixed; border: solid 1px #000000; margin: auto"><caption>${project}</caption><thead><tr><th style="border: solid 1px #808080; text-align: center">-</th>`;
 
                 for (let item of result){
                     resultTable += `<th style="border: solid 1px #808080; text-align: center">${item.property}</th>`;
@@ -617,17 +636,17 @@
 
 
                 let html = `<strong>Hi, ${fullName}</strong>
-                            <p>Thank you for taking the time to use our free online BCA 2019 Facade Calculator. It is hoped that this exercise will offer you some guidance on the allowable window-to-wall ratio for your project at ${project}</p>
-                            <p>Summary of Inputs:</p>
+                            <p>Thank you for taking the time to use our free online BCA 2019 Façade Calculator. It is hoped that this exercise will offer you some guidance on the allowable window-to-wall ratio for your project at: ${project}.</p>
+                            <p>Summary of Inputs</p>
                             ${userInputs}
                             <p>Results:</p>
                             ${resultTable}
-                            <p>The results above have been generated using the Deemed-to-Satisfy (DTS) pathway as described under NCC 2019 Part J1.5 and associated Specifications. Assumptions and geralisations have been make to simplify the calculations and the above results are provided for early stage design guidance only. The results should not be used for town planning or building permit purposes. Furthermore, alternative solution pathways allow for further design optimisations and offsets to produce differing results</p>
-                            <p>Please contact Gary should you wish to discuss your project further and we will be happy to provide a gree consultation in optimising your design for the best overall outcome</p>
+                            <p>The results above have been generated using the Deemed-to-Satisfy (DTS) pathway as described under NCC 2019 Part J1.5 and associated Specifications. Assumptions and generalisations have been made to simplify the calculations and the above results are provided for early stage design guidance only. The results should not be used for town planning or building permit purposes. Furthermore, alternative solution pathways allow for further design optimisations and offsets to produce differing results</p>
+                            <p>Please contact Gary should you wish to discuss your project further and we will be happy to provide a free consultation in optimising your design for the best overall outcome</p>
                             <p>We can also provide the following services to assist in achieving the sustainability goals for your project:</p>
                             <ul>
                                 <li>AFRC Calculations</li>
-                                <li>Facade Design</li>
+                                <li>Façade Design</li>
                                 <li>Passive Shading Analysis</li>
                                 <li>Section J Alternative Solution Assessments</li>
                                 <li>Thermal Comfort Modelling</li>
