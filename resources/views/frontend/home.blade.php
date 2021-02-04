@@ -567,7 +567,7 @@
                     })
                 }
 
-                let userInputs = `<p><strong>Climate Zone: </strong><span>${climateZone}</span></p>`;
+                let userInputs = `<html><body><p><strong>Climate Zone: </strong><span>${climateZone}</span></p>`;
                 userInputs += `<p><strong>Building Classification: </strong><span>${buildingClassification}</span></p>`;
 
                 userInputs += `<table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse"><thead><tr><th style="border: solid 1px #808080; text-align: center">Window Properties</th><th style="border: solid 1px #808080; text-align: center">Total System U-value</th><th style="border: solid 1px #808080; text-align: center">Total System SHGC</th></tr></thead>`
@@ -654,7 +654,7 @@
                                 <li>Green Star / WELL Rating tool Assessments</li>
                                 <li>Water Sensitive Urban Design</li>
                                 <li>NatHERS Energy Ratings</li>
-                            </ul>`;
+                            </ul></body></html>`;
 
 
                 let formData = new FormData();
