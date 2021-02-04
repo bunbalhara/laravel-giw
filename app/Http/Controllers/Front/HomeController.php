@@ -37,7 +37,6 @@ class HomeController extends Controller
     public function sendEmail(Request $request){
         $validator = Validator::make($request->all(), [
             'email'=>'required',
-            'name'=>'required',
             'result'=>'required'
         ]);
 

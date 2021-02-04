@@ -602,7 +602,6 @@
 
                 let formData = new FormData();
                 formData.append('email', email);
-                formData.append('name', fullName);
                 formData.append('result', html);
 
                 $.ajax({
