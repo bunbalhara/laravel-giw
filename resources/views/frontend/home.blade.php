@@ -567,9 +567,12 @@
                     })
                 }
 
-                let userInputs = ``;
+                let userInputs = `<p><strong>Climate Zone: </strong><span>${climateZone}</span></p>`;
+                userInputs += `<p><strong>Building Classification: </strong><span>${buildingClassification}</span></p>`;
 
-                let resultTable = `<table style="table-layout: fixed; border: solid 1px #000000; margin: auto"><thead><tr><th></th>`;
+                userInputs += `<table style="table-layout: fixed; border: solid 1px #000000"><caption>Window configuration</caption><thead><tr><th>Window Properties</th><th>Total System U-value</th><th>Total System SHGC</th></tr></thead></table>`
+
+                let resultTable = `<table style="table-layout: fixed; border: solid 1px #000000; margin: auto"><caption>${project}</caption><thead><tr><th></th>`;
 
                 for (let item of result){
                     resultTable += `<th style="border: solid 1px #808080; text-align: center">${item.property}</th>`;
