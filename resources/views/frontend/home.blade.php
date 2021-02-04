@@ -643,8 +643,8 @@
                             ${userInputs}
                             <h4>Results:</h4>
                             ${resultTable}
-                            <p>The results above have been generated using the Deemed-to-Satisfy (DTS) pathway as described under NCC 2019 Part J1.5 and associated Specifications. Assumptions and generalisations have been made to simplify the calculations and the above results are provided for early stage design guidance only. The results should not be used for town planning or building permit purposes. Furthermore, alternative solution pathways allow for further design optimisations and offsets to produce differing results</p>
-                            <p>Please contact Gary should you wish to discuss your project further and we will be happy to provide a free consultation in optimising your design for the best overall outcome</p>
+                            <p>The results above have been generated using the Deemed-to-Satisfy (DTS) pathway as described under NCC 2019 Part J1.5 and associated Specifications. Assumptions and generalisations have been made to simplify the calculations and the above results are provided for early stage design guidance only. The results should not be used for town planning or building permit purposes. Furthermore, alternative solution pathways allow for further design optimisations and offsets to produce differing results.</p>
+                            <p>Please contact Gary should you wish to discuss your project further and we will be happy to provide a free consultation in optimising your design for the best overall outcome.</p>
                             <p>We can also provide the following services to assist in achieving the sustainability goals for your project:</p>
                             <ul>
                                 <li>AFRC Calculations</li>
