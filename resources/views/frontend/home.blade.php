@@ -581,13 +581,13 @@
 
                 userInputs += `</tbody></table>`;
 
-                userInputs += `<table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse; margin-top: 30px"><thead><tr><th>Shading</th><th>Projection</th><th>W (Window Height)</th><th>H (Shading Height)</th></tr></thead>`
+                userInputs += `<div style="margin-top: 30px"><table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse;"><thead><tr><th>Shading</th><th>Projection</th><th>W (Window Height)</th><th>H (Shading Height)</th></tr></thead>`
                 userInputs += `<tbody><tr><td style="border: solid 1px #808080; text-align: center">North</td><td style="border: solid 1px #808080; text-align: center">${northProjection}</td><td style="border: solid 1px #808080; text-align: center">${northW}</td><td style="border: solid 1px #808080; text-align: center">${northH}</td></tr>`
                 userInputs += `<tr><td style="border: solid 1px #808080; text-align: center">Ease</td><td style="border: solid 1px #808080; text-align: center">${eastProjection}</td><td style="border: solid 1px #808080; text-align: center">${eastW}</td><td style="border: solid 1px #808080; text-align: center">${eastH}</td></tr>`
                 userInputs += `<tr><td style="border: solid 1px #808080; text-align: center">South</td><td style="border: solid 1px #808080; text-align: center">${southProjection}</td><td style="border: solid 1px #808080; text-align: center">${southW}</td><td style="border: solid 1px #808080; text-align: center">${southH}</td></tr>`
                 userInputs += `<tr><td style="border: solid 1px #808080; text-align: center">West</td><td style="border: solid 1px #808080; text-align: center">${westProjection}</td><td style="border: solid 1px #808080; text-align: center">${westW}</td><td style="border: solid 1px #808080; text-align: center">${westH}</td></tr>`
 
-                userInputs += `</tbody></table>`
+                userInputs += `</tbody></table></div>`
 
 
                 // Result Table
@@ -635,11 +635,11 @@
 
 
 
-                let html = `<html><head><title>Window-to-Wall Ratio Calculator Results</title></head><body><strong>Hi, ${fullName}</strong>
+                let html = `<html><head><title>Window-to-Wall Ratio Calculator Results</title></head><body><h2>Hi, ${fullName}</h2>
                             <p>Thank you for taking the time to use our free online BCA 2019 Façade Calculator. It is hoped that this exercise will offer you some guidance on the allowable window-to-wall ratio for your project at: ${project}.</p>
-                            <p>Summary of Inputs</p>
+                            <h4>Summary of Inputs</h4>
                             ${userInputs}
-                            <p>Results:</p>
+                            <h4>Results:</h4>
                             ${resultTable}
                             <p>The results above have been generated using the Deemed-to-Satisfy (DTS) pathway as described under NCC 2019 Part J1.5 and associated Specifications. Assumptions and generalisations have been made to simplify the calculations and the above results are provided for early stage design guidance only. The results should not be used for town planning or building permit purposes. Furthermore, alternative solution pathways allow for further design optimisations and offsets to produce differing results</p>
                             <p>Please contact Gary should you wish to discuss your project further and we will be happy to provide a free consultation in optimising your design for the best overall outcome</p>

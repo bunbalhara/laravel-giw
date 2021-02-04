@@ -59,6 +59,7 @@ class HomeController extends Controller
                     'data'=> $request->all(),
                     'message'=>'The calculation sent to '.$email.' successfully!'
                 ]);
+
             }catch (\Exception $err){
                 return response()->json([
                     'status'=> 0,
