@@ -468,7 +468,7 @@
                 })
             }
 
-            $(document).on('change keyup click', '.climate-zone, .building-classification, .window-properties .select-item, table input', function () {
+            $(document).on('change keyup click', '.climate-zone, .building-classification, .window-properties .select-item, table input, .project-address', function () {
                 let enabled = false;
                 if(windowProperties.length > 0 && $('.project-address').val()){
                     enabled = true;
