@@ -50,11 +50,11 @@ class HomeController extends Controller
 //                $name = $request->name;
 //                $result = json_decode($request->result);
 //                Mail::to($email)->send(new SimpleMail($name, $result));
-//                return response()->json([
-//                    'status'=> 1,
-//                    'data'=> $request->all(),
-//                    'message'=>'The calculation sent to '.$email.' successfully , Please check your email.'
-//                ]);
+                return response()->json([
+                    'status'=> 1,
+                    'data'=> $request->all(),
+                    'message'=>'The calculation sent to '.$email.' successfully , Please check your email.'
+                ]);
             }catch (\Exception $err){
                 return response()->json([
                     'status'=> 0,
@@ -68,6 +68,7 @@ class HomeController extends Controller
         return response()->json([
             'status'=> 0,
             'errors'=> $validator->errors(),
+            'data'=>$request->all(),
             'message'=>'success'
         ]);
 
