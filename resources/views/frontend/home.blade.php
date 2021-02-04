@@ -569,14 +569,49 @@
 
                 let userInputs = ``;
 
-                let resultTable = `<table>
-                                <thead>
-                                    <tr>
-                                        <th>asdfa</th>
-                                        <th>asdfasdf</th>
-                                    </tr>
-                                </thead>
-                            </table>`
+                let resultTable = `<table><thead><tr><th></th>`;
+
+                for (let item in result){
+                    resultTable += `<th>${item.property}</th>`;
+                }
+
+                // North
+                resultTable += '</tr></thead><tbody><tr><td>North</td>';
+
+                for (let item in result){
+                    resultTable += `<td>${item.output.north}</td>`;
+                }
+
+                resultTable += '</tr>';
+
+                // East
+                resultTable += '<tr><td>East</td>';
+
+                for (let item in result){
+                    resultTable += `<td>${item.output.east}</td>`;
+                }
+
+                resultTable += '</tr>';
+
+                // South
+                resultTable += '<tr><td>South</td>';
+
+                for (let item in result){
+                    resultTable += `<td>${item.output.south}</td>`;
+                }
+
+                resultTable += '</tr>';
+
+                // East
+                resultTable += '<tr><td>West</td>';
+
+                for (let item in result){
+                    resultTable += `<td>${item.output.west}</td>`;
+                }
+
+                resultTable += '</tr></tbody></table>';
+
+
 
                 let html = `<strong>Hi, ${fullName}</strong>
                             <p>Thank you for taking the time to use our free online BCA 2019 Facade Calculator. It is hoped that this exercise will offer you some guidance on the allowable window-to-wall ratio for your project at ${project}</p>
