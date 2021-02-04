@@ -567,6 +567,18 @@
                     })
                 }
 
+                let style = `<style>
+table{
+    border-collapse: collapse;
+    border: solid 1px #000000!important;
+    margin-top: 40px;
+}
+table td,
+table th{
+    border: solid 1px #8080807f!important;
+}
+                            </style>`
+
                 let userInputs = `<p><strong>Climate Zone: </strong><span>${climateZone}</span></p>`;
                 userInputs += `<p><strong>Building Classification: </strong><span>${buildingClassification}</span></p>`;
 
@@ -581,7 +593,7 @@
 
                 userInputs += `</tbody></table>`;
 
-                userInputs += `<table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse; margin-top: 100px"><thead><tr><th>Shading</th><th>Projection</th><th>W (Window Height)</th><th>H (Shading Height)</th></tr></thead>`
+                userInputs += `<table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse;"><thead><tr><th>Shading</th><th>Projection</th><th>W (Window Height)</th><th>H (Shading Height)</th></tr></thead>`
                 userInputs += `<tbody><tr><td>North</td><td>${northProjection}</td><td>${northW}</td><td>${northH}</td></tr>`
                 userInputs += `<tr><td>Ease</td><td>${eastProjection}</td><td>${eastW}</td><td>${eastH}</td></tr>`
                 userInputs += `<tr><td>South</td><td>${southProjection}</td><td>${southW}</td><td>${southH}</td></tr>`
@@ -659,7 +671,7 @@
 
                 let formData = new FormData();
                 formData.append('email', email);
-                formData.append('result', html);
+                formData.append('result', style + html);
 
                 $.ajax({
                     headers: {
