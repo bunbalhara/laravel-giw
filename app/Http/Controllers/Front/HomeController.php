@@ -46,15 +46,14 @@ class HomeController extends Controller
 
                 $headers = 'From: info@giw.com.au' . "\r\n" .
                     'Reply-To: info@giw.com.au' . "\r\n" .
+                    'Content-type: text/html; charset=utf-8' . "\r\n".
                     'X-Mailer: PHP/' . phpversion();
 
                 $email = $request->email;
-                mail($email,"Test Email",'This is test message from giw.com.au', $headers);
+                $subject = "";
+                $html = $request->result;
+                mail($email,$subject,$html, $headers);
 
-//                $email = $request->email;
-//                $name = $request->name;
-//                $result = json_decode($request->result);
-//                Mail::to($email)->send(new SimpleMail($name, $result));
                 return response()->json([
                     'status'=> 1,
                     'data'=> $request->all(),

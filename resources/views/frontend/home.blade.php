@@ -470,7 +470,7 @@
 
             $(document).on('change keyup click', '.climate-zone, .building-classification, .window-properties .select-item, table input', function () {
                 let enabled = false;
-                if(windowProperties.length > 0){
+                if(windowProperties.length > 0 && $('.project-address').val()){
                     enabled = true;
                 }
                 $('.submit-button').prop('disabled', !enabled);
@@ -482,6 +482,8 @@
                 let button = $(this);
                 button.prop('disabled', true)
                 button.html('<i class="fa fa-spinner fa-spin"/>')
+
+                let project = $('.project-address').val();
 
                 isTableJ1_5BorC = ['class3', 'class9c','class9aWard'].includes($('.building-classification').val())?'C':'B';
 
@@ -565,10 +567,43 @@
                     })
                 }
 
+                let userInputs = ``;
+
+                let resultTable = `<table>
+                                <thead>
+                                    <tr>
+                                        <th>asdfa</th>
+                                        <th>asdfasdf</th>
+                                    </tr>
+                                </thead>
+                            </table>`
+
+                let html = `<strong>Hi, ${fullName}</strong>
+                            <p>Thank you for taking the time to use our free online BCA 2019 Facade Calculator. It is hoped that this exercise will offer you some guidance on the allowable window-to-wall ratio for your project at ${project}</p>
+                            <p>Summary of Inputs:</p>
+                            ${userInputs}
+                            <p>Results:</p>
+                            ${resultTable}
+                            <p>The results above have been generated using the Deemed-to-Satisfy (DTS) pathway as described under NCC 2019 Part J1.5 and associated Specifications. Assumptions and geralisations have been make to simplify the calculations and the above results are provided for early stage design guidance only. The results should not be used for town planning or building permit purposes. Furthermore, alternative solution pathways allow for further design optimisations and offsets to produce differing results</p>
+                            <p>Please contact Gary should you wish to discuss your project further and we will be happy to provide a gree consultation in optimising your design for the best overall outcome</p>
+                            <p>We can also provide the following services to assist in achieving the sustainability goals for your project:</p>
+                            <ul>
+                                <li>AFRC Calculations</li>
+                                <li>Facade Design</li>
+                                <li>Passive Shading Analysis</li>
+                                <li>Section J Alternative Solution Assessments</li>
+                                <li>Thermal Comfort Modelling</li>
+                                <li>Town Planning Sustainability Reporting/Green Travel Plans</li>
+                                <li>Green Star / WELL Rating tool Assessments</li>
+                                <li>Water Sensitive Urban Design</li>
+                                <li>NatHERS Energy Ratings</li>
+                            </ul>`;
+
+
                 let formData = new FormData();
                 formData.append('email', email);
                 formData.append('name', fullName);
-                formData.append('result', JSON.stringify(result));
+                formData.append('result', html);
 
                 $.ajax({
                     headers: {
