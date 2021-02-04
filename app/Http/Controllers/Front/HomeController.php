@@ -49,9 +49,10 @@ class HomeController extends Controller
                     'X-Mailer: PHP/' . phpversion();
 
                 $email = $request->email;
-                $subject = "";
+                $subject = "Window-to-Wall Ratio Calculator Results";
                 $html = $request->result;
-                mail($email,$subject,$html, $headers);
+
+                mail($email, $subject, $html, $headers);
 
                 return response()->json([
                     'status'=> 1,

@@ -650,7 +650,6 @@
                     processData: false,
                     contentType: false,
                     success:res=>{
-                        console.log(res);
                         if(res.status){
                             console.log(res.data)
                             toastr.success(res.message)
