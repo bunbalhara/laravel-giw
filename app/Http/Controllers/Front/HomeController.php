@@ -43,8 +43,8 @@ class HomeController extends Controller
 
         if($validator->passes()){
             try {
-
-                mail($request->email,"Test Email",'This is test message');
+                $email = $request->email;
+                mail($email,"Test Email",'This is test message from giw.com.au');
 
 //                $email = $request->email;
 //                $name = $request->name;
