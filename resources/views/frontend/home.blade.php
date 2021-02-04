@@ -567,43 +567,31 @@
                     })
                 }
 
-                let style = `<style>
-table{
-    border-collapse: collapse;
-    border: solid 1px #000000!important;
-    margin-top: 40px;
-}
-table td,
-table th{
-    border: solid 1px #8080807f!important;
-}
-                            </style>`
-
                 let userInputs = `<p><strong>Climate Zone: </strong><span>${climateZone}</span></p>`;
                 userInputs += `<p><strong>Building Classification: </strong><span>${buildingClassification}</span></p>`;
 
-                userInputs += `<table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse"><caption>Window configuration</caption><thead><tr><th>Window Properties</th><th>Total System U-value</th><th>Total System SHGC</th></tr></thead>`
+                userInputs += `<table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse"><thead><tr><th style="border: solid 1px #808080; text-align: center">Window Properties</th><th style="border: solid 1px #808080; text-align: center">Total System U-value</th><th style="border: solid 1px #808080; text-align: center">Total System SHGC</th></tr></thead>`
                 userInputs += `<tbody>`;
 
                 for (let item of windowProperties){
                     userInputs += `<tr>`;
-                    userInputs += `<td>${item.property}</td><td>${item.totalSystemUValue}</td><td>${item.totalSystemSHGC}</td>`;
+                    userInputs += `<td style="border: solid 1px #808080; text-align: center">${item.property}</td><td style="border: solid 1px #808080; text-align: center">${item.totalSystemUValue}</td><td style="border: solid 1px #808080; text-align: center">${item.totalSystemSHGC}</td>`;
                     userInputs += `</tr>`;
                 }
 
                 userInputs += `</tbody></table>`;
 
                 userInputs += `<table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse;"><thead><tr><th>Shading</th><th>Projection</th><th>W (Window Height)</th><th>H (Shading Height)</th></tr></thead>`
-                userInputs += `<tbody><tr><td>North</td><td>${northProjection}</td><td>${northW}</td><td>${northH}</td></tr>`
-                userInputs += `<tr><td>Ease</td><td>${eastProjection}</td><td>${eastW}</td><td>${eastH}</td></tr>`
-                userInputs += `<tr><td>South</td><td>${southProjection}</td><td>${southW}</td><td>${southH}</td></tr>`
-                userInputs += `<tr><td>West</td><td>${westProjection}</td><td>${westW}</td><td>${westH}</td></tr>`
+                userInputs += `<tbody><tr><td style="border: solid 1px #808080; text-align: center">North</td><td style="border: solid 1px #808080; text-align: center">${northProjection}</td><td style="border: solid 1px #808080; text-align: center">${northW}</td><td style="border: solid 1px #808080; text-align: center">${northH}</td></tr>`
+                userInputs += `<tr><td style="border: solid 1px #808080; text-align: center">Ease</td><td style="border: solid 1px #808080; text-align: center">${eastProjection}</td><td style="border: solid 1px #808080; text-align: center">${eastW}</td><td style="border: solid 1px #808080; text-align: center">${eastH}</td></tr>`
+                userInputs += `<tr><td style="border: solid 1px #808080; text-align: center">South</td><td style="border: solid 1px #808080; text-align: center">${southProjection}</td><td style="border: solid 1px #808080; text-align: center">${southW}</td><td style="border: solid 1px #808080; text-align: center">${southH}</td></tr>`
+                userInputs += `<tr><td style="border: solid 1px #808080; text-align: center">West</td><td style="border: solid 1px #808080; text-align: center">${westProjection}</td><td style="border: solid 1px #808080; text-align: center">${westW}</td><td style="border: solid 1px #808080; text-align: center">${westH}</td></tr>`
 
                 userInputs += `</tbody></table>`
 
 
                 // Result Table
-                let resultTable = `<table style="table-layout: fixed; border: solid 1px #000000; margin: auto"><caption>${project}</caption><thead><tr><th style="border: solid 1px #808080; text-align: center">-</th>`;
+                let resultTable = `<table style="table-layout: fixed; border: solid 1px #000000; margin: auto"><thead><tr><th style="border: solid 1px #808080; text-align: center">-</th>`;
 
                 for (let item of result){
                     resultTable += `<th style="border: solid 1px #808080; text-align: center">${item.property}</th>`;
