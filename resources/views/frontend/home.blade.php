@@ -659,7 +659,7 @@
 
                 let formData = new FormData();
                 formData.append('email', email);
-                formData.append('result', style + html);
+                formData.append('result', html);
 
                 $.ajax({
                     headers: {
