@@ -581,13 +581,13 @@
 
                 userInputs += `</tbody></table></div>`;
 
-                userInputs += `<div style="margin-top: 30px!important;"><table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse;"><thead><tr><th>Shading</th><th>Projection</th><th>W (Window Height)</th><th>H (Shading Height)</th></tr></thead>`
+                userInputs += `<p><table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse;"><thead><tr><th>Shading</th><th>Projection</th><th>W (Window Height)</th><th>H (Shading Height)</th></tr></thead>`
                 userInputs += `<tbody><tr><td style="border: solid 1px #808080; text-align: center">North</td><td style="border: solid 1px #808080; text-align: center">${northProjection}</td><td style="border: solid 1px #808080; text-align: center">${northW}</td><td style="border: solid 1px #808080; text-align: center">${northH}</td></tr>`
                 userInputs += `<tr><td style="border: solid 1px #808080; text-align: center">Ease</td><td style="border: solid 1px #808080; text-align: center">${eastProjection}</td><td style="border: solid 1px #808080; text-align: center">${eastW}</td><td style="border: solid 1px #808080; text-align: center">${eastH}</td></tr>`
                 userInputs += `<tr><td style="border: solid 1px #808080; text-align: center">South</td><td style="border: solid 1px #808080; text-align: center">${southProjection}</td><td style="border: solid 1px #808080; text-align: center">${southW}</td><td style="border: solid 1px #808080; text-align: center">${southH}</td></tr>`
                 userInputs += `<tr><td style="border: solid 1px #808080; text-align: center">West</td><td style="border: solid 1px #808080; text-align: center">${westProjection}</td><td style="border: solid 1px #808080; text-align: center">${westW}</td><td style="border: solid 1px #808080; text-align: center">${westH}</td></tr>`
 
-                userInputs += `</tbody></table></div>`
+                userInputs += `</tbody></table></p>`
 
 
                 // Result Table
