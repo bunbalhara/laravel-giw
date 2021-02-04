@@ -581,7 +581,7 @@
 
                 userInputs += `</tbody></table>`;
 
-                userInputs += `<table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse;"><thead><tr><th>Shading</th><th>Projection</th><th>W (Window Height)</th><th>H (Shading Height)</th></tr></thead>`
+                userInputs += `<table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse; margin-top: 30px"><thead><tr><th>Shading</th><th>Projection</th><th>W (Window Height)</th><th>H (Shading Height)</th></tr></thead>`
                 userInputs += `<tbody><tr><td style="border: solid 1px #808080; text-align: center">North</td><td style="border: solid 1px #808080; text-align: center">${northProjection}</td><td style="border: solid 1px #808080; text-align: center">${northW}</td><td style="border: solid 1px #808080; text-align: center">${northH}</td></tr>`
                 userInputs += `<tr><td style="border: solid 1px #808080; text-align: center">Ease</td><td style="border: solid 1px #808080; text-align: center">${eastProjection}</td><td style="border: solid 1px #808080; text-align: center">${eastW}</td><td style="border: solid 1px #808080; text-align: center">${eastH}</td></tr>`
                 userInputs += `<tr><td style="border: solid 1px #808080; text-align: center">South</td><td style="border: solid 1px #808080; text-align: center">${southProjection}</td><td style="border: solid 1px #808080; text-align: center">${southW}</td><td style="border: solid 1px #808080; text-align: center">${southH}</td></tr>`
@@ -591,7 +591,7 @@
 
 
                 // Result Table
-                let resultTable = `<table style="table-layout: fixed; border: solid 1px #000000; margin-top: 20px;"><thead><tr><th style="border: solid 1px #808080; text-align: center">-</th>`;
+                let resultTable = `<table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse"><thead><tr><th style="border: solid 1px #808080; text-align: center">-</th>`;
 
                 for (let item of result){
                     resultTable += `<th style="border: solid 1px #808080; text-align: center">${item.property}</th>`;
