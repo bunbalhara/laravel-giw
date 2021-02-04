@@ -571,14 +571,14 @@
 
                 let resultTable = `<table><thead><tr><th></th>`;
 
-                for (let item in result){
+                for (let item of result){
                     resultTable += `<th>${item.property}</th>`;
                 }
 
                 // North
                 resultTable += '</tr></thead><tbody><tr><td>North</td>';
 
-                for (let item in result){
+                for (let item of result){
                     resultTable += `<td>${item.output.north}</td>`;
                 }
 
@@ -587,7 +587,7 @@
                 // East
                 resultTable += '<tr><td>East</td>';
 
-                for (let item in result){
+                for (let item of result){
                     resultTable += `<td>${item.output.east}</td>`;
                 }
 
@@ -596,7 +596,7 @@
                 // South
                 resultTable += '<tr><td>South</td>';
 
-                for (let item in result){
+                for (let item of result){
                     resultTable += `<td>${item.output.south}</td>`;
                 }
 
@@ -605,7 +605,7 @@
                 // East
                 resultTable += '<tr><td>West</td>';
 
-                for (let item in result){
+                for (let item of result){
                     resultTable += `<td>${item.output.west}</td>`;
                 }
 
