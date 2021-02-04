@@ -43,8 +43,13 @@ class HomeController extends Controller
 
         if($validator->passes()){
             try {
+
+                $headers = 'From: info@giw.com.au' . "\r\n" .
+                    'Reply-To: info@giw.com.au' . "\r\n" .
+                    'X-Mailer: PHP/' . phpversion();
+
                 $email = $request->email;
-                mail($email,"Test Email",'This is test message from giw.com.au');
+                mail($email,"Test Email",'This is test message from giw.com.au', $headers);
 
 //                $email = $request->email;
 //                $name = $request->name;
