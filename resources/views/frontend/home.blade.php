@@ -569,7 +569,7 @@
 
                 let userInputs = ``;
 
-                let resultTable = `<table style="table-layout: fixed; border: solid 1px #000000"><thead><tr><th></th>`;
+                let resultTable = `<table style="table-layout: fixed; border: solid 1px #000000; margin: auto"><thead><tr><th></th>`;
 
                 for (let item of result){
                     resultTable += `<th style="border: solid 1px #808080; text-align: center">${item.property}</th>`;
