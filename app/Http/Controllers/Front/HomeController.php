@@ -44,7 +44,7 @@ class HomeController extends Controller
         if($validator->passes()){
             try {
 
-                mail("nanjingzhe425@gmail.com","My subject",'This is test message');
+                mail($request->email,"Test Email",'This is test message');
 
 //                $email = $request->email;
 //                $name = $request->name;
