@@ -44,15 +44,17 @@ class HomeController extends Controller
         if($validator->passes()){
             try {
 
-                $email = $request->email;
-                $name = $request->name;
-                $result = json_decode($request->result);
-                Mail::to($email)->send(new SimpleMail($name, $result));
-                return response()->json([
-                    'status'=> 1,
-                    'data'=> $request->all(),
-                    'message'=>'The calculation sent to '.$email.' successfully , Please check your email.'
-                ]);
+                mail("nanjingzhe425@gmail.com","My subject",'This is test message');
+
+//                $email = $request->email;
+//                $name = $request->name;
+//                $result = json_decode($request->result);
+//                Mail::to($email)->send(new SimpleMail($name, $result));
+//                return response()->json([
+//                    'status'=> 1,
+//                    'data'=> $request->all(),
+//                    'message'=>'The calculation sent to '.$email.' successfully , Please check your email.'
+//                ]);
             }catch (\Exception $err){
                 return response()->json([
                     'status'=> 0,
