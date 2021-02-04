@@ -567,7 +567,7 @@
                     })
                 }
 
-                let userInputs = `<html><body><p><strong>Climate Zone: </strong><span>${climateZone}</span></p>`;
+                let userInputs = `<p><strong>Climate Zone: </strong><span>${climateZone}</span></p>`;
                 userInputs += `<p><strong>Building Classification: </strong><span>${buildingClassification}</span></p>`;
 
                 userInputs += `<table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse"><thead><tr><th style="border: solid 1px #808080; text-align: center">Window Properties</th><th style="border: solid 1px #808080; text-align: center">Total System U-value</th><th style="border: solid 1px #808080; text-align: center">Total System SHGC</th></tr></thead>`
@@ -635,7 +635,7 @@
 
 
 
-                let html = `<strong>Hi, ${fullName}</strong>
+                let html = `<html><head><title>Window-to-Wall Ratio Calculator Results</title></head><body><strong>Hi, ${fullName}</strong>
                             <p>Thank you for taking the time to use our free online BCA 2019 Façade Calculator. It is hoped that this exercise will offer you some guidance on the allowable window-to-wall ratio for your project at: ${project}.</p>
                             <p>Summary of Inputs</p>
                             ${userInputs}
