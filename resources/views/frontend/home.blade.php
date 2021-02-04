@@ -569,44 +569,44 @@
 
                 let userInputs = ``;
 
-                let resultTable = `<table><thead><tr><th></th>`;
+                let resultTable = `<table style="table-layout: fixed; border: solid 1px #000000"><thead><tr><th></th>`;
 
                 for (let item of result){
-                    resultTable += `<th>${item.property}</th>`;
+                    resultTable += `<th style="border: solid 1px #808080; text-align: center">${item.property}</th>`;
                 }
 
                 // North
-                resultTable += '</tr></thead><tbody><tr><td>North</td>';
+                resultTable += '</tr></thead><tbody><tr><td style="border: solid 1px #808080; text-align: center">North</td>';
 
                 for (let item of result){
-                    resultTable += `<td>${item.output.north}</td>`;
+                    resultTable += `<td style="border: solid 1px #808080; text-align: center">${item.output.north}</td>`;
                 }
 
                 resultTable += '</tr>';
 
                 // East
-                resultTable += '<tr><td>East</td>';
+                resultTable += '<tr><td style="border: solid 1px #808080; text-align: center">East</td>';
 
                 for (let item of result){
-                    resultTable += `<td>${item.output.east}</td>`;
+                    resultTable += `<td style="border: solid 1px #808080; text-align: center">${item.output.east}</td>`;
                 }
 
                 resultTable += '</tr>';
 
                 // South
-                resultTable += '<tr><td>South</td>';
+                resultTable += '<tr><td style="border: solid 1px #808080; text-align: center">South</td>';
 
                 for (let item of result){
-                    resultTable += `<td>${item.output.south}</td>`;
+                    resultTable += `<td style="border: solid 1px #808080; text-align: center">${item.output.south}</td>`;
                 }
 
                 resultTable += '</tr>';
 
                 // East
-                resultTable += '<tr><td>West</td>';
+                resultTable += '<tr><td style="border: solid 1px #808080; text-align: center">West</td>';
 
                 for (let item of result){
-                    resultTable += `<td>${item.output.west}</td>`;
+                    resultTable += `<td style="border: solid 1px #808080; text-align: center">${item.output.west}</td>`;
                 }
 
                 resultTable += '</tr></tbody></table>';
