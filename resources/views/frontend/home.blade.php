@@ -568,7 +568,7 @@
                 }
 
                 let userInputs = `<p><strong>Climate Zone: </strong><span>${climateZone}</span></p>`;
-                userInputs += `<p><strong>Building Classification: </strong><span>${buildingClassification}</span></p>`;
+                userInputs += `<p><strong>Building Classification: </strong><span style="text-transform: capitalize">${buildingClassification}</span></p>`;
 
                 userInputs += `<table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse"><thead><tr><th style="border: solid 1px #808080; text-align: center">Window Properties</th><th style="border: solid 1px #808080; text-align: center">Total System U-value</th><th style="border: solid 1px #808080; text-align: center">Total System SHGC</th></tr></thead>`
                 userInputs += `<tbody>`;
@@ -583,9 +583,9 @@
 
                 userInputs += `<p>&nbsp;</p>`;
 
-                userInputs += `<table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse;"><thead><tr><th>Shading</th><th>Projection</th><th>W (Window Height)</th><th>H (Shading Height)</th></tr></thead>`
+                userInputs += `<table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse;"><thead><tr><th style="border: solid 1px #808080; text-align: center; padding: 0 15px">Shading</th><th style="border: solid 1px #808080; text-align: center; padding: 0 15px">Projection</th><th style="border: solid 1px #808080; text-align: center; padding: 0 15px">W (Window Height)</th><th style="border: solid 1px #808080; text-align: center; padding: 0 15px">H (Shading Height)</th></tr></thead>`
                 userInputs += `<tbody><tr><td style="border: solid 1px #808080; text-align: center">North</td><td style="border: solid 1px #808080; text-align: center">${northProjection}</td><td style="border: solid 1px #808080; text-align: center">${northW}</td><td style="border: solid 1px #808080; text-align: center">${northH}</td></tr>`
-                userInputs += `<tr><td style="border: solid 1px #808080; text-align: center">Ease</td><td style="border: solid 1px #808080; text-align: center">${eastProjection}</td><td style="border: solid 1px #808080; text-align: center">${eastW}</td><td style="border: solid 1px #808080; text-align: center">${eastH}</td></tr>`
+                userInputs += `<tr><td style="border: solid 1px #808080; text-align: center">East</td><td style="border: solid 1px #808080; text-align: center">${eastProjection}</td><td style="border: solid 1px #808080; text-align: center">${eastW}</td><td style="border: solid 1px #808080; text-align: center">${eastH}</td></tr>`
                 userInputs += `<tr><td style="border: solid 1px #808080; text-align: center">South</td><td style="border: solid 1px #808080; text-align: center">${southProjection}</td><td style="border: solid 1px #808080; text-align: center">${southW}</td><td style="border: solid 1px #808080; text-align: center">${southH}</td></tr>`
                 userInputs += `<tr><td style="border: solid 1px #808080; text-align: center">West</td><td style="border: solid 1px #808080; text-align: center">${westProjection}</td><td style="border: solid 1px #808080; text-align: center">${westW}</td><td style="border: solid 1px #808080; text-align: center">${westH}</td></tr>`
 
@@ -593,51 +593,51 @@
 
 
                 // Result Table
-                let resultTable = `<table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse"><thead><tr><th style="border: solid 1px #808080; text-align: center">-</th>`;
+                let resultTable = `<table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse"><thead><tr><th style="border: solid 1px #808080; text-align: center; padding: 0 15px;">-</th>`;
 
                 for (let item of result){
-                    resultTable += `<th style="border: solid 1px #808080; text-align: center">${item.property}</th>`;
+                    resultTable += `<th style="border: solid 1px #808080; text-align: center; padding: 0 15px;">${item.property}</th>`;
                 }
 
                 // North
-                resultTable += '</tr></thead><tbody><tr><td style="border: solid 1px #808080; text-align: center">North</td>';
+                resultTable += '</tr></thead><tbody><tr><td style="border: solid 1px #808080; text-align: center; padding: 0 15px;">North</td>';
 
                 for (let item of result){
-                    resultTable += `<td style="border: solid 1px #808080; text-align: center">${item.output.north}</td>`;
+                    resultTable += `<td style="border: solid 1px #808080; text-align: center; padding: 0 15px;">${item.output.north}</td>`;
                 }
 
                 resultTable += '</tr>';
 
                 // East
-                resultTable += '<tr><td style="border: solid 1px #808080; text-align: center">East</td>';
+                resultTable += '<tr><td style="border: solid 1px #808080; text-align: center; padding: 0 15px;">East</td>';
 
                 for (let item of result){
-                    resultTable += `<td style="border: solid 1px #808080; text-align: center">${item.output.east}</td>`;
+                    resultTable += `<td style="border: solid 1px #808080; text-align: center; padding: 0 15px;">${item.output.east}</td>`;
                 }
 
                 resultTable += '</tr>';
 
                 // South
-                resultTable += '<tr><td style="border: solid 1px #808080; text-align: center">South</td>';
+                resultTable += '<tr><td style="border: solid 1px #808080; text-align: center; padding: 0 15px;">South</td>';
 
                 for (let item of result){
-                    resultTable += `<td style="border: solid 1px #808080; text-align: center">${item.output.south}</td>`;
+                    resultTable += `<td style="border: solid 1px #808080; text-align: center; padding: 0 15px;">${item.output.south}</td>`;
                 }
 
                 resultTable += '</tr>';
 
                 // East
-                resultTable += '<tr><td style="border: solid 1px #808080; text-align: center">West</td>';
+                resultTable += '<tr><td style="border: solid 1px #808080; text-align: center; padding: 0 15px;">West</td>';
 
                 for (let item of result){
-                    resultTable += `<td style="border: solid 1px #808080; text-align: center">${item.output.west}</td>`;
+                    resultTable += `<td style="border: solid 1px #808080; text-align: center; padding: 0 15px;">${item.output.west}</td>`;
                 }
 
                 resultTable += '</tr></tbody></table>';
 
 
 
-                let html = `<html><head><title>Window-to-Wall Ratio Calculator Results</title></head><body><h2>Hi, ${fullName}</h2>
+                let html = `<html><head><title>Window-to-Wall Ratio Calculator Results</title></head><body><h2>Hi ${fullName},</h2>
                             <p>Thank you for taking the time to use our free online BCA 2019 Façade Calculator. It is hoped that this exercise will offer you some guidance on the allowable window-to-wall ratio for your project at: ${project}.</p>
                             <h4>Summary of Inputs</h4>
                             ${userInputs}
