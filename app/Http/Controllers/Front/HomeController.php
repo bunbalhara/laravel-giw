@@ -63,7 +63,7 @@ class HomeController extends Controller
                 $mail->Port       = 587;
                 $mail->SMTPSecure = 'tls';
                 $mail->Host = 'https://giw.com.au';
-                $mail->SMTPAuth = false;
+                $mail->SMTPAuth = true;
                 $mail->Username = 'info@giw.com.au';
                 $mail->Password = 'k}[ep~6=S$ea8]f';
                 $mail->SetFrom('info@giw.com.au', 'FromEmail');
@@ -74,7 +74,14 @@ class HomeController extends Controller
                 $mail->Subject = $subject;
                 $mail->Body    = $html;
 
-                $mail->send();
+                if(!$mail->send()){
+                    return response()->json([
+                        'status'=> 0,
+                        'errors'=>  $mail->ErrorInfo,
+                        'data'=> $request->all(),
+                        'message'=>'failed'
+                    ]);
+                }
 
                 return response()->json([
                     'status'=> 1,
