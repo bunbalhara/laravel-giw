@@ -59,7 +59,7 @@ class HomeController extends Controller
 
                 $mail = new PHPMailer(true);
                 $mail->isSMTP();
-                $mail->Host = 'smtp.office365.com';
+                $mail->Host = 'dedrelay.secureserver.net';
                 $mail->Port       = 587;
                 $mail->SMTPSecure = 'tls';
                 $mail->SMTPAuth = true;
