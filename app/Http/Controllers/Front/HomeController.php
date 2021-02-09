@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use App\Mail\SimpleMail;
 use App\Models\CalculatorUser;
 use Illuminate\Http\Request;
 use Mail;
 use Illuminate\Support\Facades\Validator;
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
 
 class HomeController extends Controller
 {
@@ -52,7 +55,25 @@ class HomeController extends Controller
                 $subject = "Window-to-Wall Ratio Calculator Results";
                 $html = $request->result;
 
-                mail($email, $subject, $html, $headers);
+//                mail($email, $subject, $html, $headers);
+
+                $mail = new PHPMailer(true);
+                $mail->isSMTP();
+                $mail->Host = 'smtp.office365.com';
+                $mail->Port       = 587;
+                $mail->SMTPSecure = 'tls';
+                $mail->SMTPAuth   = true;
+                $mail->Username = 'info@giw.com.au';
+                $mail->Password = 'k}[ep~6=S$ea8]f';
+                $mail->SetFrom('info@giw.com.au', 'FromEmail');
+                $mail->addAddress($email, 'ToEmail');
+
+                $mail->IsHTML(true);
+
+                $mail->Subject = $subject;
+                $mail->Body    = $html;
+
+                $mail->send();
 
                 return response()->json([
                     'status'=> 1,
