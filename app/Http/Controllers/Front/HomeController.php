@@ -62,7 +62,6 @@ class HomeController extends Controller
                 $mail->Host = 'smtp.office365.com';
                 $mail->Port       = 587;
                 $mail->SMTPSecure = 'tls';
-                $mail->Host = 'https://giw.com.au';
                 $mail->SMTPAuth = true;
                 $mail->Username = 'info@giw.com.au';
                 $mail->Password = 'k}[ep~6=S$ea8]f';
