@@ -59,12 +59,10 @@ class HomeController extends Controller
 
                 $mail = new PHPMailer(true);
                 $mail->isSMTP();
-                $mail->Host = 'dedrelay.secureserver.net';
-                $mail->Port       = 587;
-                $mail->SMTPSecure = 'tls';
-                $mail->SMTPAuth = true;
-                $mail->Username = 'info@giw.com.au';
-                $mail->Password = 'k}[ep~6=S$ea8]f';
+                $mail->Host = 'giw.com.au';
+                $mail->Port       = 25;
+                $mail->SMTPSecure = 'None';
+                $mail->SMTPAuth = false;
                 $mail->SetFrom('info@giw.com.au', 'FromEmail');
                 $mail->addAddress($email, 'ToEmail');
 
