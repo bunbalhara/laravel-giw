@@ -252,6 +252,17 @@
 
             let windowProperties = [];
 
+            let buildingClassificationList = {
+                class5: 'Class 5',
+                class6: 'Class 6',
+                class7: 'Class 7',
+                class8: 'Class 8',
+                class9aWard: 'Class 9a Ward',
+                class9aOther: 'Class 9a Other',
+                class9b: 'Class 9b',
+                class9c: 'Class 9c',
+            }
+
             let tableJ1_5a = [
                 { climateZone:1, class2: 2, class3: 1.1, class5: 2, class6:2, class7:2, class8: 2, class9aWard: 1.1, class9aOther:2, class9b: 2, class9c:1.1 },
                 { climateZone:2, class2: 2, class3:   2, class5: 2, class6:2, class7:2, class8: 2, class9aWard:   2, class9aOther:2, class9b: 2, class9c:  2 },
@@ -568,7 +579,7 @@
                 }
 
                 let userInputs = `<p><strong>Climate Zone: </strong><span>${climateZone}</span></p>`;
-                userInputs += `<p><strong>Building Classification: </strong><span style="text-transform: capitalize">${buildingClassification}</span></p>`;
+                userInputs += `<p><strong>Building Classification: </strong><span style="text-transform: capitalize!important;">${buildingClassificationList[buildingClassification]}</span></p>`;
 
                 userInputs += `<table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse"><thead><tr><th style="border: solid 1px #808080; text-align: center">Window Properties</th><th style="border: solid 1px #808080; text-align: center">Total System U-value</th><th style="border: solid 1px #808080; text-align: center">Total System SHGC</th></tr></thead>`
                 userInputs += `<tbody>`;
