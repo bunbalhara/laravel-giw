@@ -55,9 +55,12 @@ class HomeController extends Controller
         if($validator->passes()){
             try {
 
-                $headers = 'From: info@giw.com.au' . "\r\n" .
-                    'Reply-To: info@giw.com.au' . "\r\n" .
-                    "Content-type: text/html;charset=UTF-8" . "\r\n".
+//                $headers = 'From: info@giw.com.au' . "\r\n" .
+//                    'Reply-To: info@giw.com.au' . "\r\n" .
+//                    "Content-type: text/html;charset=UTF-8" . "\r\n".
+//                    'X-Mailer: PHP/' . phpversion();
+
+                $headers = "Content-type: text/html;charset=UTF-8" . "\r\n".
                     'X-Mailer: PHP/' . phpversion();
 
                 $email = $request->email;
