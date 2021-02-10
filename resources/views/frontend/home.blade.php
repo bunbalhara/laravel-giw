@@ -201,14 +201,11 @@
             let fullName = '';
 
             $('.submit-name-email').click(function (){
-                $(this).prop('disabled', true);
                 email = $('.email-address').val();
                 fullName = $('.full-name').val();
-
                 let formData = new FormData();
                 formData.append('email', email);
                 formData.append('name', fullName);
-                $(this).prop('disabled', true);
                 $(this).html('<i class="fa fa-spinner fa-spin"/>')
                 $.ajax({
                     headers: {
@@ -228,7 +225,7 @@
                             $('.area-2').css('display','block');
                         } else {
                             for (let key in res.errors){
-                                $(`input[name=${key}]`).css('background-color','red')
+                                $(`input[name=${key}]`).css('border','solid 1px red')
                             }
                         }
                         $(this).html('Submit')
