@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\CalculatorUser;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Mail;
 use Illuminate\Support\Facades\Validator;
@@ -22,11 +23,14 @@ class HomeController extends Controller
     public function addUser(Request $request){
         $validator = Validator::make($request->all(), [
             'name'=>'required',
-            'email'=>'unique:calculator_users',
+            'email'=>'required',
         ]);
 
         if($validator->passes()){
-            $user = new CalculatorUser();
+            $user = User::where('email', $request->email)->first();
+            if($user == null){
+                $user = new CalculatorUser();
+            }
             $user->email = $request->email;
             $user->name = $request->name;
             $user->save();
@@ -38,7 +42,7 @@ class HomeController extends Controller
 
         return response()->json([
             'status'=>0,
-            'errors'=>$request->all(),
+            'errors'=>$validator->errors(),
         ]);
     }
 
