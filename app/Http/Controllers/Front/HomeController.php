@@ -55,30 +55,7 @@ class HomeController extends Controller
                 $subject = "Window-to-Wall Ratio Calculator Results";
                 $html = $request->result;
 
-//                mail($email, $subject, $html, $headers);
-
-                $mail = new PHPMailer(true);
-                $mail->isSMTP();
-                $mail->Host = 'giw.com.au';
-                $mail->Port       = 25;
-                $mail->SMTPSecure = 'None';
-                $mail->SMTPAuth = false;
-                $mail->SetFrom('info@giw.com.au', 'FromEmail');
-                $mail->addAddress($email, 'ToEmail');
-
-                $mail->IsHTML(true);
-
-                $mail->Subject = $subject;
-                $mail->Body    = $html;
-
-                if(!$mail->send()){
-                    return response()->json([
-                        'status'=> 0,
-                        'errors'=>  $mail->ErrorInfo,
-                        'data'=> $request->all(),
-                        'message'=>'failed'
-                    ]);
-                }
+                mail($email, $subject, $html, $headers);
 
                 return response()->json([
                     'status'=> 1,
