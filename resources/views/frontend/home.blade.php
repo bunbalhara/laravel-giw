@@ -28,7 +28,7 @@
                 <div class="label">Email</div>
                 <input name="email" placeholder="Enter your email" class="form-control email-address">
             </div>
-            <button class="submit-name-email" disabled>Continue</button>
+            <button class="submit-name-email">Continue</button>
         </div>
         <div class="area-2 calculation-form" style="display: none">
             <div class="form-group">
@@ -194,7 +194,7 @@
                 let email = $('.email-address').val();
                 let fullName = $('.full-name').val();
                 let enabled = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email) && fullName
-                $('.submit-name-email').prop('disabled', !enabled);
+                // $('.submit-name-email').prop('disabled', !enabled);
             })
 
             let email = '';
@@ -227,7 +227,9 @@
                             $('.area-1').css('display','none');
                             $('.area-2').css('display','block');
                         } else {
-                            console.log(res.errors)
+                            for (let key in res.errors){
+                                $(`input[name=${key}]`).css('background-color','red')
+                            }
                         }
                         $(this).html('Submit')
                     },
