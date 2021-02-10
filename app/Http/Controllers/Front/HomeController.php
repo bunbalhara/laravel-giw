@@ -21,6 +21,7 @@ class HomeController extends Controller
 
     public function addUser(Request $request){
         $validator = Validator::make($request->all(), [
+            'name'=>'required',
             'email'=>'unique:calculator_users',
         ]);
 
@@ -29,11 +30,15 @@ class HomeController extends Controller
             $user->email = $request->email;
             $user->name = $request->name;
             $user->save();
+            return response()->json([
+                'status'=>1,
+                'data'=>$request->all(),
+            ]);
         }
 
         return response()->json([
-            'status'=>1,
-            'data'=>$request->all(),
+            'status'=>0,
+            'errors'=>$request->all(),
         ]);
     }
 
