@@ -12,7 +12,7 @@
             </video></div>
     </div>
     <div class="row_col_wrap_12 col span_12 light center" style="min-height: 100vh; display: flex; justify-content: center; align-items: center;">
-        <div class="area-1 user-info-container">
+        <div class="area-1 user-info-container" style="display: none">
             <div class="title">GIW WINDOW TO WALL RATIO CALCULATOR</div>
             <div class="description">
                 To assist architects and designers in early facade studies GIW have developed this free to use calculator which will offer indicative
@@ -166,7 +166,17 @@
                 <button class="submit-button" disabled> Submit </button>
             </div>
         </div>
-        <div class="row_col_wrap_12 col center area-3" style="display: none">
+        <div class="row_col_wrap_12 col center area-3"
+             style=" width: 100%;
+                    height: 100%;
+                    background-color: white;
+                    color: black;
+                    padding: 100px;
+                    padding-bottom: 100px !important;
+                    justify-content: center;
+                    display: flex;
+                    flex-direction: column;"
+        >
             <h2>Thanks for using the GIW Window-to-Wall Ratio Calculator.</h2>
             <h4>Please check your inbox for the results and contact us should you need any further assistance.</h4>
         </div>
