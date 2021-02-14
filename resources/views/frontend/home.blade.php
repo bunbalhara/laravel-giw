@@ -5,7 +5,7 @@
     <link href="{{asset('assets/css/front/home.css?'.time())}}"  rel="stylesheet" >
 @endsection
 @section('content')
-    <div class="area-1 nectar-video-wrap position-loaded" data-bg-alignment="" style="opacity: 1; width: 1004px; height: 100%;">
+    <div class="area-1 nectar-video-wrap position-loaded" data-bg-alignment="" style="opacity: 1; width: 1004px; height: 100%; display: none">
         <div class="nectar-video-inner"><video class="nectar-video-bg" width="1800" height="700" preload="auto" loop="" autoplay="" muted="" playsinline="" style="visibility: visible; width: 1636px; height: 920px; opacity: 1;">
                 <source src="https://giw.com.au/wp-content/uploads/2020/05/giw_home-hero-video-1080.webm?x81410" type="video/webm">
                 <source src="https://giw.com.au/wp-content/uploads/2020/05/giw_home-hero-video-1080.mp4" type="video/mp4">
@@ -165,6 +165,10 @@
             <div class="form-group">
                 <button class="submit-button" disabled> Submit </button>
             </div>
+        </div>
+        <div class="row_col_wrap_12 col center area-3" style="display: none">
+            <h2>Thanks for using the GIW Window-to-Wall Ratio Calculator.</h2>
+            <h4>Please check your inbox for the results and contact us should you need any further assistance.</h4>
         </div>
     </div>
 @endsection
@@ -685,9 +689,9 @@
                     contentType: false,
                     success:res=>{
                         if(res.status){
-                            console.log(res.data)
-                            toastr.success(res.message)
-                            button.prop('disabled', false)
+                            $('.area-1').css('display','none');
+                            $('.area-2').css('display','none');
+                            $('.area-3').css('display','flex');
                         } else {
                             console.log(res.errors)
                         }
