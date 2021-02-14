@@ -697,6 +697,7 @@
                     processData: false,
                     contentType: false,
                     success:res=>{
+                        console.log(res)
                         if(res.status){
                             $('.area-1').css('display','none');
                             $('.area-2').css('display','none');
