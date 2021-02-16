@@ -606,7 +606,7 @@
 
                 userInputs += `<p>&nbsp;</p>`;
 
-                userInputs += `<table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse;"><thead><tr><th style="border: solid 1px #808080; text-align: center!important; padding: 0 15px">Shading</th><th style="border: solid 1px #808080; text-align: center!important; padding: 0 15px">Projection</th><th style="border: solid 1px #808080; text-align: center!important; padding: 0 15px">W (Window Height)</th><th style="border: solid 1px #808080; text-align: center!important; padding: 0 15px">H (Shading Height)</th></tr></thead>`
+                userInputs += `<table style="border: solid 1px #000000; border-collapse: collapse;"><thead><tr><th style="border: solid 1px #808080; text-align: center!important; padding: 0 15px">Shading</th><th style="border: solid 1px #808080; text-align: center!important; padding: 0 15px">Projection</th><th style="border: solid 1px #808080; text-align: center!important; padding: 0 15px">W (Window Height)</th><th style="border: solid 1px #808080; text-align: center!important; padding: 0 15px">H (Shading Height)</th></tr></thead>`
                 userInputs += `<tbody><tr><td style="border: solid 1px #808080; text-align: center!important">North</td><td style="border: solid 1px #808080; text-align: center!important">${northProjection}</td><td style="border: solid 1px #808080; text-align: center!important">${northW}</td><td style="border: solid 1px #808080; text-align: center!important">${northH}</td></tr>`
                 userInputs += `<tr><td style="border: solid 1px #808080; text-align: center!important">East</td><td style="border: solid 1px #808080; text-align: center!important">${eastProjection}</td><td style="border: solid 1px #808080; text-align: center!important">${eastW}</td><td style="border: solid 1px #808080; text-align: center!important">${eastH}</td></tr>`
                 userInputs += `<tr><td style="border: solid 1px #808080; text-align: center!important">South</td><td style="border: solid 1px #808080; text-align: center!important">${southProjection}</td><td style="border: solid 1px #808080; text-align: center!important">${southW}</td><td style="border: solid 1px #808080; text-align: center!important">${southH}</td></tr>`
@@ -616,7 +616,7 @@
 
 
                 // Result Table
-                let resultTable = `<table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse"><thead><tr><th style="border: solid 1px #808080; text-align: center!important; padding: 0 15px;">-</th>`;
+                let resultTable = `<table style="border: solid 1px #000000; border-collapse: collapse"><thead><tr><th style="border: solid 1px #808080; text-align: center!important; padding: 0 15px;">-</th>`;
 
                 for (let item of result){
                     resultTable += `<th style="border: solid 1px #808080; text-align: center!important; padding: 0 15px;">${item.property}</th>`;
