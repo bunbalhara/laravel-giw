@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\CalculatorUser;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Mail;
 use Illuminate\Support\Facades\Validator;
 
@@ -76,6 +77,7 @@ class HomeController extends Controller
                 ]);
 
             }catch (\Exception $err){
+                Log::info($err);
                 return response()->json([
                     'status'=> 0,
                     'errors'=> $err->getMessage(),
