@@ -593,7 +593,7 @@
                 let userInputs = `<p><strong>Climate Zone: </strong><span>${climateZone}</span></p>`;
                 userInputs += `<p><strong>Building Classification: </strong><span style="text-transform: capitalize!important;">${buildingClassificationList[buildingClassification]}</span></p>`;
 
-                userInputs += `<table style="table-layout: fixed; border: solid 1px #000000; border-collapse: collapse"><thead><tr><th style="border: solid 1px #808080; text-align: center!important">Window Properties</th><th style="border: solid 1px #808080; text-align: center!important">Total System U-value</th><th style="border: solid 1px #808080; text-align: center!important">Total System SHGC</th></tr></thead>`
+                userInputs += `<table style="border: solid 1px #000000; border-collapse: collapse; text-align: center"><thead><tr><th style="border: solid 1px #808080; text-align: center!important">Window Properties</th><th style="border: solid 1px #808080; text-align: center!important">Total System U-value</th><th style="border: solid 1px #808080; text-align: center!important">Total System SHGC</th></tr></thead>`
                 userInputs += `<tbody>`;
 
                 for (let item of windowProperties){
