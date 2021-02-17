@@ -1,2 +1,2 @@
-<h1>Hi, {{ $name }}</h1>
+<h1>Hi, {{ $data->climateZone }}</h1>
 <p>Sending Mail from Laravel.</p>

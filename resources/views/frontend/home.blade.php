@@ -590,30 +590,33 @@
                     })
                 }
 
-                let userInputs = `<p><strong>Climate Zone: </strong><span>${climateZone}</span></p>`;
-                userInputs += `<p><strong>Building Classification: </strong><span style="text-transform: capitalize!important;">${buildingClassificationList[buildingClassification]}</span></p>`;
+                let emailTemplateData = {};
 
-                userInputs += `<table style="border: solid 1px #000000; border-collapse: collapse; text-align: center"><thead><tr><th style="border: solid 1px #808080; text-align: center!important">Window Properties</th><th style="border: solid 1px #808080; text-align: center!important">Total System U-value</th><th style="border: solid 1px #808080; text-align: center!important">Total System SHGC</th></tr></thead>`
-                userInputs += `<tbody>`;
 
-                for (let item of windowProperties){
-                    userInputs += `<tr>`;
-                    userInputs += `<td style="border: solid 1px #808080; text-align: center!important">${item.property}</td><td style="border: solid 1px #808080; text-align: center!important">${item.totalSystemUValue}</td><td style="border: solid 1px #808080; text-align: center!important">${item.totalSystemSHGC}</td>`;
-                    userInputs += `</tr>`;
-                }
 
-                userInputs += `</tbody></table>`;
-
-                userInputs += `<p>&nbsp;</p>`;
-
-                userInputs += `<table style="border: solid 1px #000000; border-collapse: collapse;"><thead><tr><th style="border: solid 1px #808080; text-align: center!important; padding: 0 15px">Shading</th><th style="border: solid 1px #808080; text-align: center!important; padding: 0 15px">Projection</th><th style="border: solid 1px #808080; text-align: center!important; padding: 0 15px">W (Window Height)</th><th style="border: solid 1px #808080; text-align: center!important; padding: 0 15px">H (Shading Height)</th></tr></thead>`
-                userInputs += `<tbody><tr><td style="border: solid 1px #808080; text-align: center!important">North</td><td style="border: solid 1px #808080; text-align: center!important">${northProjection}</td><td style="border: solid 1px #808080; text-align: center!important">${northW}</td><td style="border: solid 1px #808080; text-align: center!important">${northH}</td></tr>`
-                userInputs += `<tr><td style="border: solid 1px #808080; text-align: center!important">East</td><td style="border: solid 1px #808080; text-align: center!important">${eastProjection}</td><td style="border: solid 1px #808080; text-align: center!important">${eastW}</td><td style="border: solid 1px #808080; text-align: center!important">${eastH}</td></tr>`
-                userInputs += `<tr><td style="border: solid 1px #808080; text-align: center!important">South</td><td style="border: solid 1px #808080; text-align: center!important">${southProjection}</td><td style="border: solid 1px #808080; text-align: center!important">${southW}</td><td style="border: solid 1px #808080; text-align: center!important">${southH}</td></tr>`
-                userInputs += `<tr><td style="border: solid 1px #808080; text-align: center!important">West</td><td style="border: solid 1px #808080; text-align: center!important">${westProjection}</td><td style="border: solid 1px #808080; text-align: center!important">${westW}</td><td style="border: solid 1px #808080; text-align: center!important">${westH}</td></tr>`
-
-                userInputs += `</tbody></table>`
-
+                // let userInputs = `<p><strong>Climate Zone: </strong><span>${climateZone}</span></p>`;
+                // userInputs += `<p><strong>Building Classification: </strong><span style="text-transform: capitalize!important;">${buildingClassificationList[buildingClassification]}</span></p>`;
+                //
+                // userInputs += `<table style="border: solid 1px #000000; border-collapse: collapse; text-align: center"><thead><tr><th style="border: solid 1px #808080; text-align: center!important">Window Properties</th><th style="border: solid 1px #808080; text-align: center!important">Total System U-value</th><th style="border: solid 1px #808080; text-align: center!important">Total System SHGC</th></tr></thead>`
+                // userInputs += `<tbody>`;
+                //
+                // for (let item of windowProperties){
+                //     userInputs += `<tr>`;
+                //     userInputs += `<td style="border: solid 1px #808080; text-align: center!important">${item.property}</td><td style="border: solid 1px #808080; text-align: center!important">${item.totalSystemUValue}</td><td style="border: solid 1px #808080; text-align: center!important">${item.totalSystemSHGC}</td>`;
+                //     userInputs += `</tr>`;
+                // }
+                //
+                // userInputs += `</tbody></table>`;
+                //
+                // userInputs += `<p>&nbsp;</p>`;
+                //
+                // userInputs += `<table style="border: solid 1px #000000; border-collapse: collapse;"><thead><tr><th style="border: solid 1px #808080; text-align: center!important; padding: 0 15px">Shading</th><th style="border: solid 1px #808080; text-align: center!important; padding: 0 15px">Projection</th><th style="border: solid 1px #808080; text-align: center!important; padding: 0 15px">W (Window Height)</th><th style="border: solid 1px #808080; text-align: center!important; padding: 0 15px">H (Shading Height)</th></tr></thead>`
+                // userInputs += `<tbody><tr><td style="border: solid 1px #808080; text-align: center!important">North</td><td style="border: solid 1px #808080; text-align: center!important">${northProjection}</td><td style="border: solid 1px #808080; text-align: center!important">${northW}</td><td style="border: solid 1px #808080; text-align: center!important">${northH}</td></tr>`
+                // userInputs += `<tr><td style="border: solid 1px #808080; text-align: center!important">East</td><td style="border: solid 1px #808080; text-align: center!important">${eastProjection}</td><td style="border: solid 1px #808080; text-align: center!important">${eastW}</td><td style="border: solid 1px #808080; text-align: center!important">${eastH}</td></tr>`
+                // userInputs += `<tr><td style="border: solid 1px #808080; text-align: center!important">South</td><td style="border: solid 1px #808080; text-align: center!important">${southProjection}</td><td style="border: solid 1px #808080; text-align: center!important">${southW}</td><td style="border: solid 1px #808080; text-align: center!important">${southH}</td></tr>`
+                // userInputs += `<tr><td style="border: solid 1px #808080; text-align: center!important">West</td><td style="border: solid 1px #808080; text-align: center!important">${westProjection}</td><td style="border: solid 1px #808080; text-align: center!important">${westW}</td><td style="border: solid 1px #808080; text-align: center!important">${westH}</td></tr>`
+                //
+                // userInputs += `</tbody></table>`
 
                 // Result Table
                 let resultTable = `<table style="border: solid 1px #000000; border-collapse: collapse"><thead><tr><th style="border: solid 1px #808080; text-align: center!important; padding: 0 15px;">-</th>`;
@@ -660,31 +663,59 @@
 
 
 
-                let html = `<html><head><title>Window-to-Wall Ratio Calculator Results</title></head><body><h2>Hi ${fullName},</h2>
-                            <p>Thank you for taking the time to use our free online BCA 2019 Façade Calculator. It is hoped that this exercise will offer you some guidance on the allowable window-to-wall ratio for your project at: ${project}.</p>
-                            <h4>Summary of Inputs</h4>
-                            ${userInputs}
-                            <h4>Results:</h4>
-                            ${resultTable}
-                            <p>The results above have been generated using the Deemed-to-Satisfy (DTS) pathway as described under NCC 2019 Part J1.5 and associated Specifications. Assumptions and generalisations have been made to simplify the calculations and the above results are provided for early stage design guidance only. The results should not be used for town planning or building permit purposes. Furthermore, alternative solution pathways allow for further design optimisations and offsets to produce differing results.</p>
-                            <p>Please contact Gary should you wish to discuss your project further and we will be happy to provide a free consultation in optimising your design for the best overall outcome.</p>
-                            <p>We can also provide the following services to assist in achieving the sustainability goals for your project:</p>
-                            <ul>
-                                <li>AFRC Calculations</li>
-                                <li>Façade Design</li>
-                                <li>Passive Shading Analysis</li>
-                                <li>Section J Alternative Solution Assessments</li>
-                                <li>Thermal Comfort Modelling</li>
-                                <li>Town Planning Sustainability Reporting/Green Travel Plans</li>
-                                <li>Green Star / WELL Rating tool Assessments</li>
-                                <li>Water Sensitive Urban Design</li>
-                                <li>NatHERS Energy Ratings</li>
-                            </ul></body></html>`;
+                // let html = `<html><head><title>Window-to-Wall Ratio Calculator Results</title></head><body><h2>Hi ${fullName},</h2>
+                //             <p>Thank you for taking the time to use our free online BCA 2019 Façade Calculator. It is hoped that this exercise will offer you some guidance on the allowable window-to-wall ratio for your project at: ${project}.</p>
+                //             <h4>Summary of Inputs</h4>
+                //             ${userInputs}
+                //             <h4>Results:</h4>
+                //             ${resultTable}
+                //             <p>The results above have been generated using the Deemed-to-Satisfy (DTS) pathway as described under NCC 2019 Part J1.5 and associated Specifications. Assumptions and generalisations have been made to simplify the calculations and the above results are provided for early stage design guidance only. The results should not be used for town planning or building permit purposes. Furthermore, alternative solution pathways allow for further design optimisations and offsets to produce differing results.</p>
+                //             <p>Please contact Gary should you wish to discuss your project further and we will be happy to provide a free consultation in optimising your design for the best overall outcome.</p>
+                //             <p>We can also provide the following services to assist in achieving the sustainability goals for your project:</p>
+                //             <ul>
+                //                 <li>AFRC Calculations</li>
+                //                 <li>Façade Design</li>
+                //                 <li>Passive Shading Analysis</li>
+                //                 <li>Section J Alternative Solution Assessments</li>
+                //                 <li>Thermal Comfort Modelling</li>
+                //                 <li>Town Planning Sustainability Reporting/Green Travel Plans</li>
+                //                 <li>Green Star / WELL Rating tool Assessments</li>
+                //                 <li>Water Sensitive Urban Design</li>
+                //                 <li>NatHERS Energy Ratings</li>
+                //             </ul></body></html>`;
+                //
 
-
+                emailTemplateData.userInputs = {
+                    climateZone,
+                    buildingClassification: buildingClassificationList[buildingClassification],
+                    windowProperties,
+                    projection:{
+                        north:{
+                            northProjection,
+                            northW,
+                            northH
+                        },
+                        east:{
+                            eastProjection,
+                            eastW,
+                            eastH
+                        },
+                        south:{
+                            southProjection,
+                            southW,
+                            southH
+                        },
+                        west:{
+                            westProjection,
+                            westW,
+                            westH
+                        }
+                    },
+                    result
+                }
                 let formData = new FormData();
                 formData.append('email', email);
-                formData.append('result', html);
+                formData.append('data', JSON.stringify(emailTemplateData));
 
                 $.ajax({
                     headers: {

@@ -50,7 +50,7 @@ class HomeController extends Controller
     public function sendEmail(Request $request){
         $validator = Validator::make($request->all(), [
             'email'=>'required',
-            'result'=>'required'
+            'data'=>'required'
         ]);
 
         if($validator->passes()){
@@ -61,12 +61,11 @@ class HomeController extends Controller
                     "Content-type: text/html;charset=UTF-8" . "\r\n".
                     'X-Mailer: PHP/' . phpversion();
 
-//                $headers = "Content-type: text/html;charset=UTF-8" . "\r\n".
-//                    'X-Mailer: PHP/' . phpversion();
+                $data = json_decode($request->data);
 
                 $email = $request->email;
                 $subject = "Window-to-Wall Ratio Calculator Results";
-                $html = $request->result;
+                $html = view('mail', compact('data'))->render();
 
                 mail($email, $subject, $html, $headers);
 
