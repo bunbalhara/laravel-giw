@@ -27,7 +27,7 @@
                     <tbody>
                     @foreach($data->windowProperties as $item)
                         <tr style="border-bottom: solid 1px black;">
-                            <td style="text-align: left">{{$item->property??'property'}}</td>
+                            <td style="text-align: left; font-size: 12px">{{$item->property??'property'}}</td>
                             <td style="padding-top: 10px; padding-bottom: 10px; font-size: 12px; text-align: center">{{$item->totalSystemUValue??0}}</td>
                             <td style="padding-top: 10px; padding-bottom: 10px; font-size: 12px; text-align: center">{{$item->totalSystemSHGC??0}}</td>
                         </tr>
@@ -78,7 +78,7 @@
 
         <div style="padding: 50px; color: white; background-color: #096128!important; margin-top: 50px!important;">
             <h4  style="font-size: 30px; font-weight: 900; color: white; margin: 0; background-color: #096128!important;">Results</h4>
-            <p style="background-color: #096128!important;">
+            <p style="background-color: #096128!important; color: white">
                 The following percentages are a representation of the indicative allowable window-to-wall ratio.
             </p>
             <table style=" margin-top: 50px!important; color: white; table-layout: fixed; width: 100%; border-collapse: collapse; background-color: #096128">
@@ -117,8 +117,8 @@
                     </tr>
                 </tbody>
             </table>
-            <p style="font-weight: bold; margin-top: 50px; font-size: 12px; background-color: #096128!important;">Disclaimer</p>
-            <p style="font-size: 12px; font-weight: 400; background-color: #096128!important;">
+            <p style="font-weight: bold; margin-top: 50px; font-size: 12px; background-color: #096128!important; color: white">Disclaimer</p>
+            <p style="font-size: 12px; font-weight: 400; background-color: #096128!important;  color: white">
                 The results above have been generated using the Deemed-to-Satisfy (DTS) pathway as described under NCC 2019 Part J1.5 and associated Specifications.
                 Assumptions and generalisations have been made to simplify the calculations and the above results are provided for early stage design guidance only.
                 The results should not be used for town planning or building permit purposes.
