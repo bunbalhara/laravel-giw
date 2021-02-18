@@ -107,7 +107,8 @@
             </tbody>
         </table>
 
-        <p>The results above have been generated using the Deemed-to-Satisfy (DTS) pathway as described under NCC 2019 Part J1.5 and associated Specifications.
+        <p>
+            The results above have been generated using the Deemed-to-Satisfy (DTS) pathway as described under NCC 2019 Part J1.5 and associated Specifications.
             Assumptions and generalisations have been made to simplify the calculations and the above results are provided for early stage design guidance only.
             The results should not be used for town planning or building permit purposes.
             Furthermore, alternative solution pathways allow for further design optimisations and offsets to produce differing results.

@@ -65,7 +65,7 @@ class HomeController extends Controller
 
                 $email = $request->email;
                 $subject = "Window-to-Wall Ratio Calculator Results";
-                $html = view('mail', compact('data'))->render();
+                $html = "view('mail', compact('data'))->render()";
 
                 mail($email, $subject, $html, $headers);
 
