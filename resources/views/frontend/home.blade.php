@@ -177,7 +177,7 @@
                     flex-direction: column;"
         >
             <h2 style="color: green; font-weight: 400;">Thanks for using the GIW Window-to-Wall Ratio Calculator.</h2>
-            <h4  style="color: #555555; font-weight: 600;">Please check your inbox for the results and contact us should you need any further assistance.</h4>
+            <h4  style="color: #555555; font-weight: 600;">Please check your inbox or junk mail folder for the results and contact us should you require any further assistance.</h4>
         </div>
     </div>
 @endsection
