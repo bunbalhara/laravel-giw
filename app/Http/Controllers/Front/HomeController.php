@@ -66,11 +66,11 @@ class HomeController extends Controller
 
                 $email = $request->email;
                 $subject = "Window-to-Wall Ratio Calculator Results";
-//                $html = "view('mail', compact('data'))->render()";
-//
-//                mail($email, $subject, $html, $headers);
+                $html = "view('mail', compact('data'))->render()";
 
-                Mail::to($email)->send(new SimpleMail($subject, $data));
+                mail($email, $subject, $html, $headers);
+
+//                Mail::to($email)->send(new SimpleMail($subject, $data));
 
                 return response()->json([
                     'status'=> 1,
