@@ -44,27 +44,27 @@
             <tbody>
             <tr>
                 <td style="border: solid 1px #808080; text-align: center!important">North</td>
-                <td style="border: solid 1px #808080; text-align: center!important">${northProjection}</td>
-                <td style="border: solid 1px #808080; text-align: center!important">${northW}</td>
-                <td style="border: solid 1px #808080; text-align: center!important">${northH}</td>
+                <td style="border: solid 1px #808080; text-align: center!important">{{$data->projection->north->northProjection}}</td>
+                <td style="border: solid 1px #808080; text-align: center!important">{{$data->projection->north->northW}}</td>
+                <td style="border: solid 1px #808080; text-align: center!important">{{$data->projection->north->northH}}</td>
             </tr>
             <tr>
                 <td style="border: solid 1px #808080; text-align: center!important">East</td>
-                <td style="border: solid 1px #808080; text-align: center!important">${eastProjection}</td>
-                <td style="border: solid 1px #808080; text-align: center!important">${eastW}</td>
-                <td style="border: solid 1px #808080; text-align: center!important">${eastH}</td>
+                <td style="border: solid 1px #808080; text-align: center!important">{{$data->projection->east->eastProjection}}</td>
+                <td style="border: solid 1px #808080; text-align: center!important">{{$data->projection->east->eastW}}</td>
+                <td style="border: solid 1px #808080; text-align: center!important">{{$data->projection->east->eastH}}</td>
             </tr>
             <tr>
                 <td style="border: solid 1px #808080; text-align: center!important">South</td>
-                <td style="border: solid 1px #808080; text-align: center!important">${southProjection}</td>
-                <td style="border: solid 1px #808080; text-align: center!important">${southW}</td>
-                <td style="border: solid 1px #808080; text-align: center!important">${southH}</td>
+                <td style="border: solid 1px #808080; text-align: center!important">{{$data->projection->south->southProjection}}</td>
+                <td style="border: solid 1px #808080; text-align: center!important">{{$data->projection->south->southW}}</td>
+                <td style="border: solid 1px #808080; text-align: center!important">{{$data->projection->south->southH}}</td>
             </tr>
             <tr>
                 <td style="border: solid 1px #808080; text-align: center!important">West</td>
-                <td style="border: solid 1px #808080; text-align: center!important">${westProjection}</td>
-                <td style="border: solid 1px #808080; text-align: center!important">${westW}</td>
-                <td style="border: solid 1px #808080; text-align: center!important">${westH}</td>
+                <td style="border: solid 1px #808080; text-align: center!important">{{$data->projection->west->westProjection}}</td>
+                <td style="border: solid 1px #808080; text-align: center!important">{{$data->projection->west->westW}}</td>
+                <td style="border: solid 1px #808080; text-align: center!important">{{$data->projection->west->westH}}</td>
             </tr>
             </tbody>
         </table>
