@@ -76,7 +76,7 @@
             </div>
         </div>
 
-        <div style="padding: 50px; color: white; background-color: #096128!important; margin-top: 50px!important;">
+        <div style="padding: 50px; color: white; background-color: #096128!important; margin-top: 50px!important; display: block">
             <h4  style="font-size: 30px; font-weight: 900; color: white; margin: 0; background-color: #096128!important;">Results</h4>
             <p style="background-color: #096128!important; color: white">
                 The following percentages are a representation of the indicative allowable window-to-wall ratio.
