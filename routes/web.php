@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace'=>'Front'], function() {
     Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/test', 'HomeController@test')->name('test');
     Route::post('user/add', 'HomeController@addUser')->name('user.add');
     Route::post('mail/send', 'HomeController@sendEmail')->name('mail.send');
 });

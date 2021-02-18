@@ -11,17 +11,17 @@ use Illuminate\Support\Facades\Log;
 class SimpleMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
-    public $result;
-    public $name;
+    public $subject;
+    public $data;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name, $result)
+    public function __construct($subject, $data)
     {
-        $this->name = $name;
-        $this->result = $result;
+        $this->subject = $subject;
+        $this->data = $data;
     }
 
     /**
@@ -31,14 +31,9 @@ class SimpleMail extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        $result = $this->result;
-        $name = $this->name;
-        return $this->subject('Subject Name')
-            ->view('mail.template1')
-            ->with([
-                'result'=>$result,
-                'name'=>$name
-            ]);
+        $data = $this->data;
+        return $this->subject($this->subject)
+            ->view('mail', compact('data'));
     }
 
     public function failed()

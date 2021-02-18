@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Mail\SimpleMail;
 use App\Models\CalculatorUser;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -65,9 +66,11 @@ class HomeController extends Controller
 
                 $email = $request->email;
                 $subject = "Window-to-Wall Ratio Calculator Results";
-                $html = "view('mail', compact('data'))->render()";
+//                $html = "view('mail', compact('data'))->render()";
+//
+//                mail($email, $subject, $html, $headers);
 
-                mail($email, $subject, $html, $headers);
+                Mail::to($email)->send(new SimpleMail($subject, $data));
 
                 return response()->json([
                     'status'=> 1,
@@ -93,5 +96,90 @@ class HomeController extends Controller
             'message'=>'success'
         ]);
 
+    }
+
+    public function test(){
+        $data = [
+            'fullName'=>'Full Name',
+            'project'=>'Project Name',
+            'climateZone'=>'Climate Zone',
+            'buildingClassification'=> 'Building Classification',
+            'windowProperties'=>[
+                [
+                    'property'=>'property',
+                    'totalSystemUValue' => 0,
+                    'totalSystemSHGC' => 0
+                ],
+                [
+                    'property'=>'property',
+                    'totalSystemUValue' => 1,
+                    'totalSystemSHGC' => 1
+                ]
+            ],
+            'projection'=>[
+                'north'=>[
+                    'northProjection'=>0,
+                    'northW'=>0,
+                    'northH=>0'
+                ],
+                'east'=>[
+                    'eastProjection'=>0,
+                    'eastW'=>0,
+                    'eastH'=>0
+                ],
+                'south'=>[
+                    'southProjection'=>0,
+                    'southW'=>0,
+                    'southH'=>0
+                ],
+                'west'=>[
+                    'westProjection'=>0,
+                    'westW'=>0,
+                    'westH'=>0
+                ],
+            ],
+            'result'=>[
+                [
+                    'property'=>'property',
+                    'output'=>[
+                        'north'=>0,
+                        'east'=>0,
+                        'south'=>0,
+                        'west'=>0
+                    ]
+                ],
+                [
+                    'property'=>'property',
+                    'output'=>[
+                        'north'=>0,
+                        'east'=>0,
+                        'south'=>0,
+                        'west'=>0
+                    ]
+                ],
+                [
+                    'property'=>'property',
+                    'output'=>[
+                        'north'=>0,
+                        'east'=>0,
+                        'south'=>0,
+                        'west'=>0
+                    ]
+                ],
+                [
+                    'property'=>'property',
+                    'output'=>[
+                        'north'=>0,
+                        'east'=>0,
+                        'south'=>0,
+                        'west'=>0
+                    ]
+                ]
+            ]
+        ];
+
+        $data = json_decode(json_encode($data));
+
+        return view('mail', compact('data'));
     }
 }
