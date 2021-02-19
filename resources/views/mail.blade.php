@@ -221,7 +221,6 @@
                                     <div style="padding-top: 10px; padding-bottom: 10px; color: #096128; font-size: 12px">GIW is a proud member of the GBCA</div>
                                     <div style="display: flex; margin-top: 10px; height: 30px">
                                         <img src="{{asset('assets/img/green-star-logo.png')}}" style="height: 30px; width: auto; object-fit: contain; margin-right: 20px">
-                                        <img src="{{asset('assets/img/gbca-logo.png')}}" style="height: 30px; width: auto; object-fit: contain">
                                     </div>
                                 </td>
                             </tr>
