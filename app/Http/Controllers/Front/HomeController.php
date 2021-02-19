@@ -11,10 +11,6 @@ use Illuminate\Support\Facades\Log;
 use Mail;
 use Illuminate\Support\Facades\Validator;
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\SMTP;
-
 class HomeController extends Controller
 {
     public function index()
@@ -65,12 +61,12 @@ class HomeController extends Controller
                 $data = json_decode($request->data);
 
                 $email = $request->email;
-                $subject = "Window-to-Wall Ratio Calculator Results";
+                $subject = "GIW Window-to-Wall Ratio Calculator Results";
                 $html = view('mail', compact('data'))->render();
 
                 mail($email, $subject, $html, $headers);
 
-//                Mail::to($email)->send(new SimpleMail($subject, $data));
+                Mail::to($email)->send(new SimpleMail($subject, $data));
 
                 return response()->json([
                     'status'=> 1,
