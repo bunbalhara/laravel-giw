@@ -334,7 +334,6 @@
                 {gh:0, ph:0.8, value: 0.41},
                 {gh:0, ph:0.9, value: 0.38},
                 {gh:0, ph:1, value: 0.35},
-                {gh:0, ph:0, value: 1},
 
                 {gh:0.1, ph:0, value: 1},
                 {gh:0.1, ph:0.1, value: 0.95},
@@ -680,7 +679,7 @@
 
                 let result = lookUpGHArray.find(item=>item.gh === matchOrSmallestGH);
 
-                return result.value;
+                return result?.value || 1;
             }
         })
     </script>
