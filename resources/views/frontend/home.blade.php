@@ -545,17 +545,17 @@
 
                     // G/H
 
-                    let northG_H = (northG/northH);
-                    let southG_H = (southG/southH);
-                    let eastG_H = (eastG/eastH);
-                    let westG_H = (westG/westH);
+                    let northG_H = northH > 0 ? (northG/northH) : 0;
+                    let southG_H = southH > 0 ? (southG/southH) : 0;
+                    let eastG_H = eastH > 0 ? (eastG/eastH) : 0;
+                    let westG_H = westH > 0 ? (westG/westH) : 0;
 
                     // P/H
 
-                    let northP_H = (northProjection/northH);
-                    let southP_H = (southProjection/southH);
-                    let eastP_H = (eastProjection/eastH);
-                    let westP_H = (westProjection/westH);
+                    let northP_H = northH > 0 ? (northProjection/northH) : 0;
+                    let southP_H = southH > 0 ? (southProjection/southH) : 0;
+                    let eastP_H = eastH > 0 ? (eastProjection/eastH) : 0;
+                    let westP_H = westH > 0 ? (westProjection/westH) : 0;
 
                     // Shading Coefficients
 
@@ -672,13 +672,13 @@
                 let matchOrSmallestGH = Math.floor(gh * 10)/10;
 
                 let lookUpGHArray = table.reduce((result, item)=>{
-                    if(item.ph == matchOrSmallestPH){
+                    if(item.ph === matchOrSmallestPH){
                         result.push(item);
                     }
                     return  result;
                 },[]);
 
-                let result = lookUpGHArray.find(item=>item.gh == matchOrSmallestGH);
+                let result = lookUpGHArray.find(item=>item.gh === matchOrSmallestGH);
 
                 return result.value;
             }
