@@ -500,159 +500,170 @@
             })
 
             $('.submit-button').click(function () {
+                let valid = true;
 
-
-                let button = $(this);
-                button.prop('disabled', true)
-                button.html('<i class="fa fa-spinner fa-spin"/>')
-
-                let project = $('.project-address').val();
-
-                isTableJ1_5BorC = ['class3', 'class9c','class9aWard'].includes($('.building-classification').val())?'C':'B';
-
-                let sALookupTable = isTableJ1_5BorC === 'B'?tableJ1_5b : tableJ1_5c;
-
-                sAn = sALookupTable.find(item=>item.climateZone == $('.climate-zone').val()).north;
-                sAs = sALookupTable.find(item=>item.climateZone == $('.climate-zone').val()).south;
-                sAe = sALookupTable.find(item=>item.climateZone == $('.climate-zone').val()).east;
-                sAw = sALookupTable.find(item=>item.climateZone == $('.climate-zone').val()).west;
-
-                // Shading Projection
-                northProjection = $('.north_projection').val();
-                northW = $('.north_w').val();
-                northH = $('.north_h').val();
-                northG = northH - northW;
-                eastProjection = $('.east_projection').val()
-                eastW = $('.east_w').val();
-                eastH = $('.east_h').val();
-                eastG = eastH - eastW;
-                southProjection = $('.south_projection').val();
-                southW = $('.south_w').val();
-                southH = $('.south_h').val();
-                southG = southH - southW;
-                westProjection = $('.west_projection').val();
-                westW = $('.west_w').val();
-                westH = $('.west_h').val();
-                westG = westH - westW;
-
-                // G/H
-
-                let northG_H = (northG/northH);
-                let southG_H = (southG/southH);
-                let eastG_H = (eastG/eastH);
-                let westG_H = (westG/westH);
-
-                // P/H
-
-                let northP_H = (northProjection/northH);
-                let southP_H = (southProjection/southH);
-                let eastP_H = (eastProjection/eastH);
-                let westP_H = (westProjection/westH);
-
-                // Shading Coefficients
-
-                let Sn = getShadingCoefficient(northG_H, northP_H, tableSpecJ1_57a);
-                let Ss = getShadingCoefficient(southG_H, southP_H, tableSpecJ1_57b);
-                let Se = getShadingCoefficient(eastG_H, eastP_H, tableSpecJ1_57a);
-                let Sw = getShadingCoefficient(westG_H, westP_H, tableSpecJ1_57a);
-
-
-                // UAve, UWall
-
-                climateZone = $('.climate-zone').val();
-                buildingClassification = $('.building-classification').val();
-                uAve = tableJ1_5a.find(item=>item.climateZone == climateZone)[buildingClassification];
-
-                uWal = 1;
-
-                let result = [];
-
-                for (let item of windowProperties){
-                    let uValLimit = (uAve - uWal)/(item.totalSystemUValue - uWal);
-                    let northSHGCLimit = sAn / (Sn * item.totalSystemSHGC);
-                    let southSHGCLimit = sAs / (Ss * item.totalSystemSHGC);
-                    let eastSHGCLimit = sAe / (Se * item.totalSystemSHGC);
-                    let westSHGCLimit = sAw / (Sw * item.totalSystemSHGC);
-
-                    let nUL_WWR = uValLimit > northSHGCLimit ? northSHGCLimit : uValLimit;
-                    let sUL_WWR = uValLimit > southSHGCLimit ? southSHGCLimit : uValLimit;
-                    let eUL_WWR = uValLimit > eastSHGCLimit ? eastSHGCLimit : uValLimit;
-                    let wUL_WWR = uValLimit > westSHGCLimit ? westSHGCLimit : uValLimit;
-
-                    result.push({
-                        property: item.property,
-                        output:{
-                            north: (nUL_WWR*100).toFixed(1),
-                            south:(sUL_WWR*100).toFixed(1),
-                            east: (eUL_WWR*100).toFixed(1),
-                            west: (wUL_WWR*100).toFixed(1)
-                        }
-                    })
-                }
-
-                let emailTemplateData = {
-                    fullName,
-                    project,
-                    climateZone,
-                    buildingClassification: buildingClassificationList[buildingClassification],
-                    windowProperties,
-                    projection:{
-                        north:{
-                            northProjection,
-                            northW,
-                            northH
-                        },
-                        east:{
-                            eastProjection,
-                            eastW,
-                            eastH
-                        },
-                        south:{
-                            southProjection,
-                            southW,
-                            southH
-                        },
-                        west:{
-                            westProjection,
-                            westW,
-                            westH
-                        }
-                    },
-                    result
-                }
-                let formData = new FormData();
-                formData.append('email', email);
-                formData.append('data', JSON.stringify(emailTemplateData));
-
-                $.ajax({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    type:'post',
-                    url:'{{route('mail.send')}}',
-                    data: formData,
-                    cache: false,
-                    processData: false,
-                    contentType: false,
-                    success:res=>{
-                        console.log(res)
-                        if(res.status){
-                            $('.area-1').css('display','none');
-                            $('.area-2').css('display','none');
-                            $('.area-3').css('display','flex');
-                            $('.nectar-video-wrap').css('display','block')
-                        } else {
-                            console.log(res.errors)
-                        }
-                        button.html('Submit')
-                        button.prop('disabled', false)
-                    },
-                    error:err=> {
-                        button.prop('disabled', false)
-                        button.html('Submit')
-                        console.log(err)
+                $('.input-box').each((index, item)=>{
+                    if($(item)[0].type === 'number' && !$(item).val()){
+                        $(item).val(0)
                     }
                 })
+
+                if(valid){
+
+                    let button = $(this);
+                    button.prop('disabled', true)
+                    button.html('<i class="fa fa-spinner fa-spin"/>')
+
+                    let project = $('.project-address').val();
+
+                    isTableJ1_5BorC = ['class3', 'class9c','class9aWard'].includes($('.building-classification').val())?'C':'B';
+
+                    let sALookupTable = isTableJ1_5BorC === 'B'?tableJ1_5b : tableJ1_5c;
+
+                    sAn = sALookupTable.find(item=>item.climateZone == $('.climate-zone').val()).north;
+                    sAs = sALookupTable.find(item=>item.climateZone == $('.climate-zone').val()).south;
+                    sAe = sALookupTable.find(item=>item.climateZone == $('.climate-zone').val()).east;
+                    sAw = sALookupTable.find(item=>item.climateZone == $('.climate-zone').val()).west;
+
+                    // Shading Projection
+                    northProjection = $('.north_projection').val();
+                    northW = $('.north_w').val();
+                    northH = $('.north_h').val();
+                    northG = northH > northW ? northH - northW : 0;
+                    eastProjection = $('.east_projection').val()
+                    eastW = $('.east_w').val();
+                    eastH = $('.east_h').val();
+                    eastG = eastH > eastW ? eastH - eastW : 0;
+                    southProjection = $('.south_projection').val();
+                    southW = $('.south_w').val();
+                    southH = $('.south_h').val();
+                    southG = southH > southW ? southH - southW : 0;
+                    westProjection = $('.west_projection').val();
+                    westW = $('.west_w').val();
+                    westH = $('.west_h').val();
+                    westG = westH > westW ? westH - westW : 0;
+
+                    // G/H
+
+                    let northG_H = (northG/northH);
+                    let southG_H = (southG/southH);
+                    let eastG_H = (eastG/eastH);
+                    let westG_H = (westG/westH);
+
+                    // P/H
+
+                    let northP_H = (northProjection/northH);
+                    let southP_H = (southProjection/southH);
+                    let eastP_H = (eastProjection/eastH);
+                    let westP_H = (westProjection/westH);
+
+                    // Shading Coefficients
+
+                    let Sn = getShadingCoefficient(northG_H, northP_H, tableSpecJ1_57a);
+                    let Ss = getShadingCoefficient(southG_H, southP_H, tableSpecJ1_57b);
+                    let Se = getShadingCoefficient(eastG_H, eastP_H, tableSpecJ1_57a);
+                    let Sw = getShadingCoefficient(westG_H, westP_H, tableSpecJ1_57a);
+
+
+                    // UAve, UWall
+
+                    climateZone = $('.climate-zone').val();
+                    buildingClassification = $('.building-classification').val();
+                    uAve = tableJ1_5a.find(item=>item.climateZone == climateZone)[buildingClassification];
+
+                    uWal = 1;
+
+                    let result = [];
+
+                    for (let item of windowProperties){
+                        let uValLimit = (uAve - uWal)/(item.totalSystemUValue - uWal);
+                        let northSHGCLimit = sAn / (Sn * item.totalSystemSHGC);
+                        let southSHGCLimit = sAs / (Ss * item.totalSystemSHGC);
+                        let eastSHGCLimit = sAe / (Se * item.totalSystemSHGC);
+                        let westSHGCLimit = sAw / (Sw * item.totalSystemSHGC);
+
+                        let nUL_WWR = uValLimit > northSHGCLimit ? northSHGCLimit : uValLimit;
+                        let sUL_WWR = uValLimit > southSHGCLimit ? southSHGCLimit : uValLimit;
+                        let eUL_WWR = uValLimit > eastSHGCLimit ? eastSHGCLimit : uValLimit;
+                        let wUL_WWR = uValLimit > westSHGCLimit ? westSHGCLimit : uValLimit;
+
+                        result.push({
+                            property: item.property,
+                            output:{
+                                north: (nUL_WWR*100).toFixed(1),
+                                south:(sUL_WWR*100).toFixed(1),
+                                east: (eUL_WWR*100).toFixed(1),
+                                west: (wUL_WWR*100).toFixed(1)
+                            }
+                        })
+                    }
+
+                    let emailTemplateData = {
+                        fullName,
+                        project,
+                        climateZone,
+                        buildingClassification: buildingClassificationList[buildingClassification],
+                        windowProperties,
+                        projection:{
+                            north:{
+                                northProjection,
+                                northW,
+                                northH
+                            },
+                            east:{
+                                eastProjection,
+                                eastW,
+                                eastH
+                            },
+                            south:{
+                                southProjection,
+                                southW,
+                                southH
+                            },
+                            west:{
+                                westProjection,
+                                westW,
+                                westH
+                            }
+                        },
+                        result
+                    }
+                    let formData = new FormData();
+                    formData.append('email', email);
+                    formData.append('data', JSON.stringify(emailTemplateData));
+
+                    $.ajax({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        type:'post',
+                        url:'{{route('mail.send')}}',
+                        data: formData,
+                        cache: false,
+                        processData: false,
+                        contentType: false,
+                        success:res=>{
+                            console.log(res)
+                            if(res.status){
+                                $('.area-1').css('display','none');
+                                $('.area-2').css('display','none');
+                                $('.area-3').css('display','flex');
+                                $('.nectar-video-wrap').css('display','block')
+                            } else {
+                                console.log(res.errors)
+                            }
+                            button.html('Submit')
+                            button.prop('disabled', false)
+                        },
+                        error:err=> {
+                            button.prop('disabled', false)
+                            button.html('Submit')
+                            console.log(err)
+                        }
+                    })
+                }else {
+
+                }
             })
 
 
