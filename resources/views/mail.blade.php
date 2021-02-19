@@ -41,8 +41,24 @@
                                     <p>Thank you using our free online <a style="font-size: 16px; font-family: Helvetica; color: #096128;" href="https://giw.com.au/calculator/">BCA 2019 Façade Calculator</a>.
                                         This exercise offers guidance on the allowable window-to-wall ratio for your project at <span style="font-size: 16px; font-family: Helvetica; color: #096128;">{{$data->project??'Project Name'}}</span>.</p>
                                     <h4 style="font-size: 30px; font-weight: 900; color: #096128;">Summary of Inputs</h4>
-                                    <div><strong style="font-size: 16px; font-weight: 900; color: #096128; line-height: 20px; width: 500px">Climate Zone: </strong><span>{{$data->climateZone??'climateZone'}}</span></div>
-                                    <div><strong style="font-size: 16px; font-weight: 900; color: #096128; line-height: 20px; width: 500px">Building Classification: </strong><span style="text-transform: capitalize!important;">{{$data->buildingClassification??'buildingClassification'}}</span></div>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <strong style="font-size: 16px; font-weight: 900; color: #096128; line-height: 20px; width: 500px">Climate Zone: </strong>
+                                            </td>
+                                            <td>
+                                                <span>{{$data->climateZone??'climateZone'}}</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong style="font-size: 16px; font-weight: 900; color: #096128; line-height: 20px; width: 500px">Building Classification: </strong>
+                                            </td>
+                                            <td>
+                                                <span style="text-transform: capitalize!important;">{{$data->buildingClassification??'buildingClassification'}}</span>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </td>
                             </tr>
                             <tr>
