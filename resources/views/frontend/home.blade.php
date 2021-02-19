@@ -679,7 +679,7 @@
 
                 let result = lookUpGHArray.find(item=>item.gh === matchOrSmallestGH);
 
-                return result?.value || 1;
+                return result && result.value || 1;
             }
         })
     </script>
