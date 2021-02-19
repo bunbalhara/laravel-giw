@@ -137,27 +137,27 @@
                 <tbody>
                 <tr>
                     <td>North</td>
-                    <td><input class="input-box north_projection" value="1" type="number"/></td>
-                    <td><input class="input-box north_w" value="1.5" type="number"/></td>
-                    <td><input class="input-box north_h" value="3.2" type="number"/></td>
+                    <td><input class="input-box north_projection" value="" type="number"/></td>
+                    <td><input class="input-box north_w" value="" type="number"/></td>
+                    <td><input class="input-box north_h" value="" type="number"/></td>
                 </tr>
                 <tr>
                     <td>East</td>
-                    <td><input class="input-box east_projection" value="1" type="number"/></td>
-                    <td><input class="input-box east_w" value="1.5" type="number"/></td>
-                    <td><input class="input-box east_h" value="3.2" type="number"/></td>
+                    <td><input class="input-box east_projection" value="" type="number"/></td>
+                    <td><input class="input-box east_w" value="" type="number"/></td>
+                    <td><input class="input-box east_h" value="" type="number"/></td>
                 </tr>
                 <tr>
                     <td>South</td>
-                    <td><input class="input-box south_projection" value="1" type="number"/></td>
-                    <td><input class="input-box south_w" value="1.5" type="number"/></td>
-                    <td><input class="input-box south_h" value="3.2" type="number"/></td>
+                    <td><input class="input-box south_projection" value="" type="number"/></td>
+                    <td><input class="input-box south_w" value="" type="number"/></td>
+                    <td><input class="input-box south_h" value="" type="number"/></td>
                 </tr>
                 <tr>
                     <td>West</td>
-                    <td><input class="input-box west_projection" value="1" type="number"/></td>
-                    <td><input class="input-box west_w" value="1.5" type="number"/></td>
-                    <td><input class="input-box west_h" value="3.2" type="number"/></td>
+                    <td><input class="input-box west_projection" value="" type="number"/></td>
+                    <td><input class="input-box west_w" value="" type="number"/></td>
+                    <td><input class="input-box west_h" value="" type="number"/></td>
                 </tr>
                 </tbody>
             </table>
