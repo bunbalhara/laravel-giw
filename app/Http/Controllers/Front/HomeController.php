@@ -66,7 +66,7 @@ class HomeController extends Controller
 
                 mail($email, $subject, $html, $headers);
 
-                Mail::to($email)->send(new SimpleMail($subject, $data));
+//                Mail::to($email)->send(new SimpleMail($subject, $data));
 
                 return response()->json([
                     'status'=> 1,
